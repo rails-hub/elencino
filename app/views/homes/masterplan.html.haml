@@ -1,0 +1,123 @@
+/ Bootstrap
+%link{:href => "/assets/bootstrap.css", :rel => "stylesheet"}/
+/ Flexslider
+%link{:href => "/assets/flexslider.css", :rel => "stylesheet"}/
+/ Style
+%link{:href => "/assets/style.css", :rel => "stylesheet"}/
+/ HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+/ WARNING: Respond.js doesn't work if you view the page via file://
+/[if lt IE 9]
+%script{:src => "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"}
+%script{:src => "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"}
+/ jQuery (necessary for Bootstrap's JavaScript plugins)
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+#wrapper.wrapper.container-fluid
+  .menu-holder
+  %button.navbar-toggle.collapsed.toggle-menu{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+    %span.sr-only Toggle navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  .sidebar
+    #logo
+      %a{:href => "/homes"}
+        %img{:src => "/assets/logo.png"}/
+    %nav.main-nav{:role => "navigation"}
+      %h5 FRACCIONAMIENTO
+      %ul
+        %li
+          %a{:href => "/homes"}
+            %span.ga.ga-tree
+               Inicio
+        %li
+          %a{:href => "homes/masterplan"}
+            %span.ga.ga-safari
+               Masterplan
+        %li
+          %a{:href => "/homes/amenidades"}
+            %span.ga.ga-sheet
+               Amenidades
+        %li
+          %a{:href => "/homes/gallery"}
+            %span.ga.ga-gallery
+               Galeria de Fotos
+    %nav.main-nav{:role => "navigation"}
+      %h5 VENTAS
+      %ul
+        %li
+          %a{:href => "#"}
+            %span.ga.ga-map
+               Plano/Disponibilidad
+        %li
+          %a{:href => "facilidades.html"}
+            %span.ga.ga-cash
+               Facilidades
+        %li
+          %a{:href => "disponibilidad.html#cotizador"}
+            %span.ga.ga-calculator
+               Cotizador
+        / <li><a href="/register-apartados.html"><span class="ga ga-edit"></span>    Registrar Apartados</a></li>
+        %li
+          %a{:href => "contacto.html"}
+            %span.ga.ga-phone
+               Contáctanos
+  #main-content.col-md-12
+    #content
+      .box
+        %h1.page-title{:style => "text-align: center;"} Master Plan
+        %img.img-responsive.mw100{:alt => "", :src => "/assets/masterplan.png"}/
+        %br/
+        %br/
+        %br/
+        .clearfix
+          .pull-left
+            %a{:href => "#"}
+              %img{:src => "/assets/logo-footer.png"}/
+          .pull-right
+            %div
+              %img{:src => "/assets/promessa-logo-footer.png"}/
+    .dont-stand-out
+      %h1 ¡No te quedes fuera!
+      .row
+        .col-md-6
+          %h4 Solicita Informacióny atención personalizada.
+        .col-md-6
+          .message
+            %span Información Enviada.
+      %form
+        .row
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Nombre Completo*", :type => "text"}/
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Correo Electrónico*", :type => "text"}/
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Número Telefónico*", :type => "text"}/
+        .row
+          .col-md-8
+            %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
+          .col-md-4
+            %button.btn.btn-warning.btn-lg.btn-block{:type => "submit"} ¡Deseo más Información!
+:javascript
+  jQuery(document).bind("ready",function(){
+  });
+
+  jQuery(window).bind("load", function(){
+  });
+%script{:src => "/assets/main.js"}
+%footer
+  #footer.clearfix
+    .pull-left
+      %a{:href => "#"}
+        %img{:src => "/assets/logo-footer.png"}/
+    .pull-right
+      %div
+        %img{:src => "/assets/promessa-logo-footer.png"}/
+  #copyright
+    %span Desarrollado por Startup Mexico S.A. de C.V. - (442) 412 03 91
+/ Include all compiled plugins (below), or include individual files as needed
+%script{:src => "/assets/vendor/bootstrap.min.js"}
+/ Flexslider
+%script{:src => "/assets/vendor/jquery.flexslider-min.js"}

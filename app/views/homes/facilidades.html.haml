@@ -1,0 +1,201 @@
+%link{:href => "/assets/bootstrap.css", :rel => "stylesheet"}/
+/ Flexslider
+%link{:href => "/assets/flexslider.css", :rel => "stylesheet"}/
+/ Style
+%link{:href => "/assets/style.css", :rel => "stylesheet"}/
+/ HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+/ WARNING: Respond.js doesn't work if you view the page via file://
+/[if lt IE 9]
+%script{:src => "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"}
+%script{:src => "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"}
+/ jQuery (necessary for Bootstrap's JavaScript plugins)
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+#wrapper.wrapper.container-fluid
+  .menu-holder
+  %button.navbar-toggle.collapsed.toggle-menu{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+    %span.sr-only Toggle navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  .sidebar
+    #logo
+      %a{:href => "/homes"}
+        %img{:src => "/assets/logo.png"}/
+    %nav.main-nav{:role => "navigation"}
+      %h5 FRACCIONAMIENTO
+      %ul
+        %li
+          %a{:href => "/homes"}
+            %span.ga.ga-tree
+               Inicio
+        %li
+          %a{:href => "homes/masterplan"}
+            %span.ga.ga-safari
+               Masterplan
+        %li
+          %a{:href => "/homes/amenidades"}
+            %span.ga.ga-sheet
+               Amenidades
+        %li
+          %a{:href => "/homes/gallery"}
+            %span.ga.ga-gallery
+               Galeria de Fotos
+    %nav.main-nav{:role => "navigation"}
+      %h5 VENTAS
+      %ul
+        %li
+          %a{:href => "/homes/disponibilidad"}
+            %span.ga.ga-map
+               Plano/Disponibilidad
+        %li
+          %a{:href => "/homes/facilidades"}
+            %span.ga.ga-cash
+               Facilidades
+        %li
+          %a{:href => "/homes/cotizador"}
+            %span.ga.ga-calculator
+               Cotizador
+        / <li><a href="/register-apartados.html"><span class="ga ga-edit"></span>    Registrar Apartados</a></li>
+        %li
+          %a{:href => "/homes/contacto"}
+            %span.ga.ga-phone
+               Contáctanos
+  #main-content.col-md-12
+    #content
+      .box
+        %h1.page-title.with-subtitle Facilidades de Pago
+        %h6.page-subtitle Última Actualización: 10/Diciembre/2014 17:33
+        .row
+          .col-md-4
+            .encino-box
+              %h4.clearfix
+                36 Meses Sin Intereses
+                %img.pull-right{:src => "/assets//calendar.png"}/
+              .hfix
+                %p Apartado de $20,000 pesos
+                %ul
+                  %li Pago del 30% de enganche* a los 30 días naturales posteriores al pago del apartado calculado sobre precio de lista actualizado.
+                  %li El 70% restante del importe total del terreno será dividido en 36 meses sin intereses. El importe de las mensualidades restantes se comenzarán a pagar en la fecha calendario resultantes a los 30 días naturales posteriores al pago del enganche.
+              %h5
+                 
+                %br>/
+                 
+              .text-center
+                %a.btn.btn-warning{:href => "#"}   Ver Disponibilidad  
+          .col-md-4
+            .encino-box
+              %h4.clearfix
+                50% Enganche
+                %img.pull-right{:src => "/assets//puzzle.png"}/
+              .hfix
+                %p Apartado de $20,000 pesos
+                %ul
+                  %li Pago del 50% de enganche* a los 30 días naturales posteriores al pago del apartado.
+                  %li
+                    El 50% restante del importe total del terreno deberá pagarse a la fecha calendario resultante a los 365 días naturales posteriores al pago del enganche.
+                    %br/
+                    = succeed "*Menos" do
+                      %br/
+              %h5
+                10% descuento
+                %br>/
+                sobre precio de lista
+              .text-center
+                %a.btn.btn-warning{:href => "#"}   Ver Disponibilidad  
+          .col-md-4
+            .encino-box
+              %h4.clearfix
+                Pago de Contado
+                %img.pull-right{:src => "/assets//payment.png"}/
+              .hfix
+                %p Apartado de $20,000 pesos
+                %ul
+                  %li
+                    Finiquito por el importe total del terreno* a los 30 días naturales posteriores al pago del apartado.
+                    %br/
+                    = succeed "*Menos" do
+                      %br/
+              %h5
+                10% descuento
+                %br>/
+                adicional
+              .text-center
+                %a.btn.btn-warning{:href => "#"}   Ver Disponibilidad  
+        .row
+          .col-md-4
+            .encino-box.hfix-210
+              %h4.clearfix
+                Apartado y Pagos
+                %img.pull-right{:alt => "", :src => "/assets//wizzard.png"}/
+              %ul
+                %li Cheque Personal o Cheque de Caja
+                %li Depósito Bancario
+                %li.last Transferencia Bancaria
+          .col-md-8
+            .encino-box.hfix-210.only-text
+              %h6 GRUPO DESARROLLADOR CAMELOT, S. de R.L DE C.V
+              %p
+                Banamex
+                %br/
+                Cuenta. 8925258 Sucursal 7005
+                %br/
+                Clabe Interbancaria. 002680700589252589
+              %p
+                *Tras realizar su apartado contará con 30 días para elegir su forma de pago.
+                %br/
+                **Por obligatoriedad, el traslado de dominio (2.5%) deberá cubrirse en favor del municipio de Huimilpan al haberse concretado el 50% del pago de cualquier terreno.
+        %br/
+        %br/
+        %br/
+        .clearfix
+          .pull-left
+            %a{:href => "#"}
+              %img{:src => "/assets//logo-footer.png"}/
+          .pull-right
+            %div
+              %img{:src => "/assets//promessa-logo-footer.png"}/
+    .dont-stand-out
+      %h1 ¡No te quedes fuera!
+      .row
+        .col-md-6
+          %h4 Solicita Informacióny atención personalizada.
+        .col-md-6
+          .message
+            %span Información Enviada.
+      %form
+        .row
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Nombre Completo*", :type => "text"}/
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Correo Electrónico*", :type => "text"}/
+          .col-md-4
+            .form-group
+              %input.form-control{:placeholder => "Número Telefónico*", :type => "text"}/
+        .row
+          .col-md-8
+            %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
+          .col-md-4
+            %button.btn.btn-warning.btn-lg.btn-block{:type => "submit"} ¡Deseo más Información!
+:javascript
+  jQuery(document).bind("ready",function(){
+  });
+
+  jQuery(window).bind("load", function(){
+  });
+%script{:src => "/assets/main.js"}
+%footer
+  #footer.clearfix
+    .pull-left
+      %a{:href => "#"}
+        %img{:src => "/assets//logo-footer.png"}/
+    .pull-right
+      %div
+        %img{:src => "/assets//promessa-logo-footer.png"}/
+  #copyright
+    %span Desarrollado por Startup Mexico S.A. de C.V. - (442) 412 03 91
+/ Include all compiled plugins (below), or include individual files as needed
+%script{:src => "/assets//vendor/bootstrap.min.js"}
+/ Flexslider
+%script{:src => "/assets//vendor/jquery.flexslider-min.js"}

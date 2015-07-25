@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Encino Residencial">
+    <meta name="keywords" content="El, Encino, Residencial, Querétaro, Queretaro, Ventas, Fraccionamiento, Urbanizacion, Urbanización, casa club">
+    <title>El Encino</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Flexslider -->
+    <link href="css/flexslider.css" rel="stylesheet">
+    <!-- Style -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <!-- Flexslider -->
+    <script src="js/vendor/jquery.flexslider-min.js"></script>
+
+    <style>
+      /* these styles are for the demo, but are not required for the plugin */
+      .zoom {
+        display:inline-block;
+        position: relative;
+      }
+      
+      /* magnifying glass icon */
+      .zoom:after {
+        content:'';
+        display:block; 
+        width:33px; 
+        height:33px; 
+        position:absolute; 
+        top:0;
+        right:0;
+        background:url(js/zoom-master/icon.png);
+      }
+    </style>
+  </head>
+  <body>
+
+<div id="wrapper" class="wrapper container-fluid">
+
+  <div class="menu-holder"></div>
+
+  <button type="button" class="navbar-toggle collapsed toggle-menu" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  
+  <div class="sidebar"> 
+    <div id="logo">
+        <a href="index.html"><img src="img/logo.png"/></a>
+    </div>
+    <nav class="main-nav" role="navigation">
+        <h5>FRACCIONAMIENTO</h5>
+        <ul>
+            <li><a href="index.html"><span class="ga ga-tree"></span> &nbsp;&nbsp;&nbsp;Inicio</a></li>
+            <li><a href="masterplan.html"><span class="ga ga-safari"></span> &nbsp;&nbsp;&nbsp;Masterplan</a></li>
+            <li><a href="index.html#features"><span class="ga ga-sheet"></span> &nbsp;&nbsp;&nbsp;Amenidades</a></li>
+            <li><a href="gallery.html"><span class="ga ga-gallery"></span> &nbsp;&nbsp;&nbsp;Galeria de Fotos</a></li>
+        </ul>
+    </nav>
+    <nav class="main-nav" role="navigation">
+        <h5>VENTAS</h5>
+        <ul>
+            <li><a href="disponibilidad.html"><span class="ga ga-map"></span> &nbsp;&nbsp;&nbsp;Plano/Disponibilidad</a></li>
+            <li><a href="facilidades.html"><span class="ga ga-cash"></span> &nbsp;&nbsp;&nbsp;Facilidades</a></li>
+            <li><a href="disponibilidad.html#cotizador"><span class="ga ga-calculator"></span> &nbsp;&nbsp;&nbsp;Cotizador</a></li>
+            <!-- <li><a href="/register-apartados.html"><span class="ga ga-edit"></span> &nbsp;&nbsp;&nbsp;Registrar Apartados</a></li> -->
+            <li><a href="contacto.html"><span class="ga ga-phone"></span> &nbsp;&nbsp;&nbsp;Contáctanos</a></li>
+        </ul>
+    </nav>
+  </div>
+  
+  <div id="main-content" class="col-md-12">
+    <div id="content">
+      <div class="box">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="list-inline list-options">
+              <li><a target="_blank" class="download-link" href="img/Terrenos Disponibles 1era Etapa.pdf"><img src="img/download-icon-medium.png" alt=""/> Descargar Plano</a></li>
+              <li><a class="full-res-link" href="img/Terrenos Disponibles 1era Etapa.jpg" target="_blank"><img src="img/view-icon.png" alt=""/> Ver Plano en Alta Resolución</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h1 class="page-title with-subtitle">Plano 1ra Etapa</h1>
+            <h6 class="page-subtitle">Última Actualización: 10/Diciembre/2014 17:33</h6>
+          </div>
+        </div>
+
+        <!-- <div class="responsive-wrapper">
+            <iframe width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+        </div> -->
+
+        <div class="box small gray">
+
+          <div class="responsive-wrapper disponibilidad">
+
+              <div id="main-spinner" class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+
+            <div id="slider" class="flexslider">
+                  
+                  <ul class="slides">
+
+                    <li download-link="img/Terrenos Disponibles 1era Etapa.pdf" title="Plano 1ra Etapa" full-res-link="img/Terrenos Disponibles 1era Etapa.jpg">
+
+                      <span class='zoom' id='zoomImg1' style="opacity:0;">
+                        <img data-original="img/Terrenos Disponibles 1era Etapa.jpg" class="img-responsive inline zoom-source" style="opacity:0;" />
+                        <p>Hover</p>
+                      </span>  
+
+                    </li>
+
+                    <li download-link="img/Terrenos Disponibles 2da Etapa.pdf" title="Plano 2da Etapa" full-res-link="img/Terrenos Disponibles 2da Etapa.jpg" style="overflow:hidden;">
+
+                      <span class='zoom' id='zoomImg2' style="opacity:0;">
+                        <img data-original="img/Terrenos-Disponibles-2da-Etapa_2.jpg" class="img-responsive inline zoom-source" style="opacity:0;" />
+                        <p>Hover</p>
+                      </span>
+                      
+                      <!-- <img src="img/Terrenos Disponibles 2da Etapa.jpg" style="max-height:100%;" alt="">                       -->
+                    </li>
+                    
+                  </ul>
+
+                </div>
+
+              </div>
+
+              <!-- <div class="responsive-wrapper"> -->
+
+                <div id="carousel" class="flexslider carousel-preview" style="opacity:0">
+                  <ul class="slides">
+                    <li>
+                      <img src="img/Terrenos-Disponibles-1era-Etapa_preview.jpg" />
+                    </li>
+                    <li>
+                      <img src="img/Terrenos-Disponibles-2era-Etapa-2-preview.jpg" />
+                    </li>
+                    
+                  </ul>
+                </div>
+
+              <!-- </div>  -->
+
+        </div>
+
+        <br />
+        <br />
+
+        <div class="cotizacion" id="cotizador">
+          <div class="row">
+            <div class="col-md-5 no-padding-right">
+              <div class="calculator-box">
+                <h4>¡Cotiza al Instante!</h4>
+                <p>También recibirás la cotización en tu correo electrónico.</p>
+                <form>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Etapa*</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Manzana*</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Lote*</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre Completo*"/>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Correo Electrónico*"/>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Número Telefónico*"/>
+                  </div>
+                  <p>
+                    Incrementos en precios de lista sin previo aviso.<br/>
+                    En caso de incremento su cotización será válida únicamente por 5 días naturales tras recibir su correo.
+                  </p>
+                  <br />
+                  <div class="text-center">
+                    <span class="message">Cotización Enviada.</span>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-warning">&nbsp;&nbsp;&nbsp;&nbsp;Realizar Cotización&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-7 no-padding-left">
+
+              <div class="encino-box">
+
+                <div class="_hidden">
+                    <h4 class="clearfix">Cotización - Manzana 04 Lote 09 <img src="img/edit.png" class="pull-right"/></h4>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p>
+                          Superficie: 269.79m2<br/>
+                          Precio de Lista: $2,044.22
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="text-right">
+                          Impote Total: $551,489.67<br/>
+                          Apartado de $20,000.00
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h4 class="clearfix">36 Meses Sin Intereses <img src="img/calendar.png" class="pull-right"/></h4>
+                        <ul>
+                          <li>
+                            30% Enganche:$165,446.90<br/>
+                            Primer Pago:$145,446.90<br/>
+                            36 Mensualidades de:$10,723.41
+                          </li>
+                        </ul>
+                        <h4 class="clearfix">50% Enganche <img src="img/puzzle.png" class="pull-right"/></h4>
+                        <ul>
+                          <li>
+                            Precio por m2:$1,839.80 (10% desc.)<br/>
+                            Importe Total:$496,340.70<br/>
+                            50% Enganche:$248,170.35<br/>
+                            Primer Pago:$228,170.35<br/>
+                            Segundo Pago:$248,170.35
+                          </li>
+                        </ul>
+                        <h4 class="clearfix">Pago de Contado <img src="img/payment.png" class="pull-right"/></h4>
+                        <ul>
+                          <li>
+                            Precio por m2:$1,655.82 (10% adicional)<br/>
+                            Importe Total:$446,706.63<br/>
+                            Finiquito:$446,706.63
+                          </li>
+                        </ul>
+                      </div>
+                      
+                    </div>
+
+                    <div class="text-right">
+                          <a href="#"><img src="img/download-icon.png"/>&nbsp;&nbsp; Guardar Cotización</a>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="clearfix">
+            <div class="pull-left">
+                <a href="#"><img src="img/logo-footer.png"/></a>
+            </div>
+            <div class="pull-right">
+                <div><img src="img/promessa-logo-footer.png"/></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dont-stand-out">
+      <h1>¡No te quedes fuera! </h1>
+      <div class="row">
+        <div class="col-md-6"><h4>Solicita Información y atención personalizada.</h4></div>
+        <div class="col-md-6"><div class="message"><span>Información Enviada.</span></div></div>
+      </div>
+      
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Nombre Completo*"/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Correo Electrónico*"/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Número Telefónico*"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <p>Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro</p>
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning btn-lg btn-block">¡Deseo más Información!</button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+        
+        <div class="hidden">
+          <div class="for-holders">
+
+            
+
+            <span class='zoom hide-load' id='zoomImg2'>
+              <img src="img/Terrenos-Disponibles-2era-Etapa-2.jpg" class="img-responsive inline zoom-source"/>
+              <p>Hover</p>
+            </span>
+            
+          </div>
+        </div>
+
+
+
+<script src='js/zoom-master/jquery.zoom.js'></script>
+
+<script type="text/javascript">
+
+    $(document).keydown(function(e) {
+        switch(e.which) {
+
+            case 37: // left
+              $(".flex-prev").click();
+            break;
+
+            case 39: // right
+              $(".flex-next").click();
+            break;
+
+            default: return; 
+        }
+        e.preventDefault(); 
+    });
+
+
+    $(document).ready(function(){
+      
+     $('#carousel').flexslider({
+        animation: "slide",
+        controlNav: false,
+        directionNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 130,
+        itemMargin: 8,
+        asNavFor: '#slider'
+      });
+       
+      $('#slider').flexslider({
+        animation: "slide",
+        controlNav: false,
+        directionNav: false,
+        animationLoop: false,
+        slideshow: false,
+        nextText: '',
+        prevText: '',
+        animationSpeed: 300, 
+        sync: "#carousel",
+        
+        start: function(slider){
+
+          $("#main-spinner").fadeOut(function(){
+
+            
+            // $("#zoomImg1").delay(200).animate({opacity:1},1500);
+            
+            
+            slider.find('ul.slides li').each(function(){               
+              $(this).prepend("<div class='spinner disponibilidad'>\
+                                <div class='bounce1'></div>\
+                                <div class='bounce2'></div>\
+                                <div class='bounce3'></div>\
+                              </div>");
+            });
+
+            var selector = $(slider).find('ul.slides li:nth-child(1) .zoom img');
+            selector
+                .attr('src', selector.attr('data-original') )
+                .on('load',function(){
+
+                  selector.parent().parent().find(".spinner").fadeOut(function(){
+                    
+                    selector.parent().animate({opacity:1},100 ,function(){
+                      selector.animate({opacity:1},1000 ,function(){
+                        $("#zoomImg1").zoom();  
+                        // selector.css({opacity:1});
+                        $("#carousel").animate({opacity:1},1000);
+                      });
+
+                    });        
+                  });
+                });
+
+
+            var selector2 = $(slider).find('ul.slides li:nth-child(2) .zoom img');
+            selector2
+                .attr('src', selector2.attr('data-original') )
+                .on('load',function(){
+
+                  selector2.parent().parent().find(".spinner").fadeOut(function(){
+                    
+                    selector2.parent().animate({opacity:1},100 ,function(){
+                      selector2.animate({opacity:.95},1000 ,function(){
+                        $("#zoomImg2").zoom();  
+                        selector2.css({opacity:1});
+                      });
+                    });        
+                  });
+                });
+
+  
+          });
+          
+          
+        },
+
+        after: function(slider){
+          $(".download-link").attr('href', $(".flex-active-slide").attr('download-link') );
+          $(".full-res-link").attr('href', $(".flex-active-slide").attr('full-res-link') )
+          $(".page-title").text( $(".flex-active-slide").attr('title') );
+
+        }  
+
+      });
+
+    });
+
+</script>
+
+
+    <script src="js/easing.js"></script>
+    <script src="js/main.js"></script>
+
+    <footer>
+        <div id="footer" class="clearfix">
+            <div class="pull-left">
+                <a href="#"><img src="img/logo-footer.png"/></a>
+            </div>
+            <div class="pull-right">
+                <div><img src="img/promessa-logo-footer.png"/></div>
+            </div>
+        </div>
+        <div id="copyright">
+            <span>Desarrollado por Startup Mexico S.A. de C.V. - (442) 412 03 91</span>
+        </div>
+    </footer>
+
+  </body>
+</html>
