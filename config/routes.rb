@@ -9,6 +9,7 @@ Elencino::Application.routes.draw do
       get :facilidades
       get :cotizador
       get :contacto
+      get :send_email
     end
   end
 

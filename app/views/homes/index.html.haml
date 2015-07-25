@@ -107,13 +107,13 @@
             de tus Sueños!
           %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro.
           %br/
-          %form
+          %form#form1{:remote => true}
             .form-group
-              %input.form-control{:name => "username" ,:placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+              %input.form-control{:id => 'username' ,:name => "username" ,:placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .form-group
-              %input.form-control{:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+              %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .form-group
-              %input.form-control{:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+              %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             %br/
             %button.btn.btn-warning.btn-lg.btn-block ¡Deseo más Información!
             .message#flash-message2{:style => "display: none"}
@@ -247,17 +247,17 @@
           .col-md-6
             .message#flash-message3{:style => "display: none"}
               %span Información Enviada.
-        %form
+        %form#form2{:remote => true}
           .row
             .col-md-4
               .form-group
-                %input.form-control{:name => "username" ,:placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                %input.form-control{:id => 'username' ,:name => "username" ,:placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .col-md-4
               .form-group
-                %input.form-control{:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .col-md-4
               .form-group
-                %input.form-control{:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
           .row
             .col-md-8
               %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
@@ -291,3 +291,33 @@
 %script{:src => "/assets/vendor/bootstrap.min.js"}
 / Flexslider
 %script{:src => "/assets/vendor/jquery.flexslider-min.js"}
+
+:javascript
+  $(document).on("submit", "form", function(event)
+  {
+      id = $(this).attr('id');
+      var email = $('#'+id).find('#email').val();
+      var username = $('#'+id).find('#username').val();
+      var phone = $('#'+id).find('#phone').val();
+      event.preventDefault();
+      $.ajax({
+          url: "/homes/send_email?email="+email + '&phone='+phone+ '&username='+username,
+          type: "get",
+          dataType: "JSON",
+          processData: false,
+          contentType: false,
+          success: function (data, status)
+          {
+            console.log("success");
+            if(id === "form1")
+              $('#flash-message2').show();
+            else if(id === "form2")
+              $('#flash-message3').show();
+          },
+          error: function (xhr, desc, err)
+          {
+            console.log("error");
+
+          }
+      });
+  });

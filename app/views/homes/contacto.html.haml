@@ -70,18 +70,21 @@
               %h4.clearfix
                 Formulario de Contacto
                 %img.pull-right{:src => "/assets/buzon.png"}/
+
               .row
                 .col-md-12.col-lg-8.col-lg-offset-2
-                  %form
+                  %form#form4{:remote => true}
                     .form-group
-                      %input.form-control{:placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                      %input.form-control{:id => 'username' ,:name => "username", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
-                      %input.form-control{:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                      %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
-                      %input.form-control{:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                      %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
                       %textarea.form-control{:placeholder => "Mensaje Opcional", :rows => "5"}
                     %button.btn.btn-lg.btn-warning.btn-block{:type => "submit"} ¡Deseo más Información!
+                    %div{class: "message", id: "flash-message0", style: "display: none"}
+                      Cotización Enviada.
           .col-md-6
             .contact-box
               %h4.clearfix
@@ -136,3 +139,30 @@
 %script{:src => "/assets/vendor/bootstrap.min.js"}
 / Flexslider
 %script{:src => "/assets/vendor/jquery.flexslider-min.js"}
+
+:javascript
+  $(document).on("submit", "#form4", function(event)
+  {
+      id = 'form4';
+      var email = $('#'+id).find('#email').val();
+      var username = $('#'+id).find('#username').val();
+      var phone = $('#'+id).find('#phone').val();
+      event.preventDefault();
+      $.ajax({
+          url: "/homes/send_email?email="+email + '&phone='+phone+ '&username='+username,
+          type: "get",
+          dataType: "JSON",
+          processData: false,
+          contentType: false,
+          success: function (data, status)
+          {
+            console.log("success");
+            $('#flash-message0').show();
+          },
+          error: function (xhr, desc, err)
+          {
+            console.log("error");
+
+          }
+      });
+  });
