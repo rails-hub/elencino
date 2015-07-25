@@ -27,4 +27,5 @@ class HomesController < ApplicationController
   def contacto
 
   end
+
 end

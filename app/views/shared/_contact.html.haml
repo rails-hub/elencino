@@ -1,0 +1,24 @@
+.dont-stand-out
+  %h1 ¡No te quedes fuera!
+  .row
+    .col-md-6
+      %h4 Solicita Informacióny atención personalizada.
+    .col-md-6
+      .message
+        %span Información Enviada.
+  %form
+    .row
+      .col-md-4
+        .form-group
+          %input.form-control{:name => "username", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+      .col-md-4
+        .form-group
+          %input.form-control{:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+      .col-md-4
+        .form-group
+          %input.form-control{:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+    .row
+      .col-md-8
+        %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
+      .col-md-4
+        %button.btn.btn-warning.btn-lg.btn-block{:type => "submit"} ¡Deseo más Información!

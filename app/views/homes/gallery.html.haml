@@ -125,30 +125,7 @@
                 %img{:height => "86", :src => "/assets/gallery/15p.jpg", :width => "130"}/
               %li
                 %img{:height => "86", :src => "/assets/gallery/17p.jpg", :width => "130"}/
-          .dont-stand-out
-            %h1 ¡No te quedes fuera!
-            .row
-              .col-md-6
-                %h4 Solicita Informacióny atención personalizada.
-              .col-md-6
-                .message
-                  %span Información Enviada.
-            %form
-              .row
-                .col-md-4
-                  .form-group
-                    %input.form-control{:placeholder => "Nombre Completo*", :type => "text"}/
-                .col-md-4
-                  .form-group
-                    %input.form-control{:placeholder => "Correo Electrónico*", :type => "text"}/
-                .col-md-4
-                  .form-group
-                    %input.form-control{:placeholder => "Número Telefónico*", :type => "text"}/
-              .row
-                .col-md-8
-                  %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
-                .col-md-4
-                  %button.btn.btn-warning.btn-lg.btn-block{:type => "submit"} ¡Deseo más Información!
+          = render "shared/contact"
             %br/
             %br/
             .clearfix

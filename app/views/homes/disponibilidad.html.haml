@@ -120,15 +120,12 @@
                   %span#zoomImg2.zoom{:style => "opacity:0;"}
                     %img.img-responsive.inline.zoom-source{"data-original" => "/assets/Terrenos-Disponibles-2da-Etapa_2.jpg", :style => "opacity:0;"}/
                     %p Hover
-                  / <img src="img/Terrenos Disponibles 2da Etapa.jpg" style="max-height:100%;" alt="">
-          / <div class="responsive-wrapper">
           #carousel.flexslider.carousel-preview{:style => "opacity:0"}
             %ul.slides
               %li
                 %img{:src => "/assets/Terrenos-Disponibles-1era-Etapa_preview.jpg"}/
               %li
                 %img{:src => "/assets/Terrenos-Disponibles-2era-Etapa-2-preview.jpg"}/
-          / </div>
         %br/
         %br/
         #cotizador.cotizacion
@@ -158,7 +155,7 @@
                     %br/
                     En caso de incremento su cotización será válida únicamente por 5 días naturales tras recibir su correo.
                   %br/
-                  .text-center
+                  .text-center#flash-message1{:style => "display: none"}
                     %span.message> Cotización Enviada.
                        
                     %button.btn.btn-warning     Realizar Cotización    
@@ -229,30 +226,7 @@
           .pull-right
             %div
               %img{:src => "/assets/promessa-logo-footer.png"}/
-    .dont-stand-out
-      %h1 ¡No te quedes fuera!
-      .row
-        .col-md-6
-          %h4 Solicita Información y atención personalizada.
-        .col-md-6
-          .message
-            %span Información Enviada.
-      %form
-        .row
-          .col-md-4
-            .form-group
-              %input.form-control{:placeholder => "Nombre Completo*", :type => "text"}/
-          .col-md-4
-            .form-group
-              %input.form-control{:placeholder => "Correo Electrónico*", :type => "text"}/
-          .col-md-4
-            .form-group
-              %input.form-control{:placeholder => "Número Telefónico*", :type => "text"}/
-        .row
-          .col-md-8
-            %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
-          .col-md-4
-            %button.btn.btn-warning.btn-lg.btn-block{:type => "submit"} ¡Deseo más Información!
+    = render "shared/contact"
 .hidden
   .for-holders
     %span#zoomImg2.zoom.hide-load
