@@ -151,7 +151,8 @@
         } else {
         $(this).removeClass('invalid');
         $('#status').html('submitted');
-        }
+     }
+     else{
       var id = 'form4';
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
@@ -179,4 +180,5 @@
 
           }
       });
+      }
   });
