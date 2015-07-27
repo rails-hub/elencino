@@ -4,7 +4,7 @@
     .col-md-6
       %h4 Solicita Informacióny atención personalizada.
     .col-md-6
-      .message#flash-message1{:style => "display: none"}
+      .message#flash-message1{:style => "visibility: hidden"}
         %span Información Enviada.
   %form#form3{:remote => true}
     .row
@@ -40,7 +40,7 @@
           success: function (data, status)
           {
             console.log("success");
-            $('#flash-message1').show();
+            $('#flash-message1').css('visibility', 'visible');
           },
           error: function (xhr, desc, err)
           {
