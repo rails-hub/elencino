@@ -79,7 +79,7 @@
                     .form-group
                       %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
-                      %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                      %input.form-control{:id => 'phone' ,:name => "phone", :oninput => "if(value.length>10)value=value.slice(0,9)" ,:placeholder => "Número Telefónico (10 digitos)*", :pattern => '[0-9]{10}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
                       %textarea.form-control{:placeholder => "Mensaje Opcional", :rows => "5"}
                     %button.btn.btn-lg.btn-warning.btn-block{:type => "submit"} ¡Deseo más Información!

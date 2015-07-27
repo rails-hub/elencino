@@ -113,7 +113,7 @@
             .form-group
               %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .form-group
-              %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+              %input.form-control{:id => 'phone' ,:name => "phone", :oninput => "if(value.length>10)value=value.slice(0,9)" ,:placeholder => "Número Telefónico (10 digitos)*", :pattern => '[0-9]{10}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             %br/
             %button.btn.btn-warning.btn-lg.btn-block ¡Deseo más Información!
             .message#flash-message2{:style => "visibility: hidden"}
@@ -257,7 +257,7 @@
                 %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
             .col-md-4
               .form-group
-                %input.form-control{:id => 'phone' ,:name => "phone" ,:placeholder => "Número Telefónico*", :pattern => '[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                %input.form-control{:id => 'phone' ,:name => "phone", :oninput => "if(value.length>10)value=value.slice(0,9)" ,:placeholder => "Número Telefónico (10 digitos)*", :pattern => '[0-9]{10}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
           .row
             .col-md-8
               %p Ven a conocer El Encino Residencial, un lugar mágico con todo lo que soñaste y a sólo 15 minutos del centro histórico de Querétaro
