@@ -26,7 +26,7 @@
 :javascript
   $(document).on("submit", "#form3", function(event)
   {
-      id = 'form3';
+      var id = 'form3';
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
       var phone = $('#'+id).find('#phone').val();
@@ -40,6 +40,11 @@
           success: function (data, status)
           {
             console.log("success");
+            $('#'+id).find('#email').val('');
+            $('#'+id).find('#username').val('');
+            $('#'+id).find('#phone').val('');
+            $('#'+id).find('#msg').val('');
+
             $('#flash-message1').css('visibility', 'visible');
           },
           error: function (xhr, desc, err)

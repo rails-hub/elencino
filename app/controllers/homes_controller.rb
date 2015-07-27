@@ -32,14 +32,15 @@ class HomesController < ApplicationController
     @email = mail_params[:email]
     @phone = mail_params[:phone]
     @username = mail_params[:username]
+    @msg = mail_params[:msg]
 
-    UserMailer.welcome_email(@email, @username, @phone).deliver
+    UserMailer.welcome_email(@email, @username, @phone, @msg).deliver
     render :json => {:message => "success"}
   end
 
   private
 
   def mail_params
-    params.permit(:phone, :email, :username)
+    params.permit(:phone, :email, :username, :msg)
   end
 end

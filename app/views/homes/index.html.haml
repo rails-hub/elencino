@@ -295,7 +295,7 @@
 :javascript
   $(document).on("submit", "form", function(event)
   {
-      id = $(this).attr('id');
+      var id = $(this).attr('id');
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
       var phone = $('#'+id).find('#phone').val();
@@ -309,6 +309,11 @@
           success: function (data, status)
           {
             console.log("success");
+            $('#'+id).find('#email').val('');
+            $('#'+id).find('#username').val('');
+            $('#'+id).find('#phone').val('');
+            $('#'+id).find('#msg').val('');
+
             if(id === "form1")
               $('#flash-message2').css('visibility', 'visible');
             else if(id === "form2")
