@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     @username = username
     @phone = phone
     @msg = msg
-    mail(to: "sawkey.qhan@gmail.com", subject: 'El Encino - Nuevo Cliente')
+    mail(to: "rodrigomacazaga@gmail.com", subject: 'El Encino - Nuevo Cliente')
   end
 
 end
