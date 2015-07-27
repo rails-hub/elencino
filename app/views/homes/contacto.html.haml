@@ -143,7 +143,9 @@
 :javascript
   $(document).on("submit", "#form4", function(event)
   {
+    alert(this.checkValidity());
     if (!this.checkValidity()) {
+        alert('not');
         // Prevent default stops form from firing
         e.preventDefault();
         $(this).addClass('invalid');
@@ -153,6 +155,7 @@
         $('#status').html('submitted');
      }
      else{
+     alert('valid');
       var id = 'form4';
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
