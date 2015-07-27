@@ -18,11 +18,6 @@
 
 
     %script{:src => "/assets/js-webshim/minified/polyfiller.js"}
-    :css
-      .error {
-      		border:1px solid red;
-      		background: #ff0000;
-      	}
     :javascript
       webshims.polyfill();
       $(function(){
@@ -32,3 +27,8 @@
             });
             // ...
         });
+      $(function () {
+          $(".form-group").contents().filter(function () {
+              return this.nodeType != 1;
+          }).replaceWith("");
+      });
