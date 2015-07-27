@@ -15,3 +15,23 @@
 
   %body
     = yield
+
+
+    :css
+      .invalid input:required:invalid{
+        background: #BE4C54
+       }
+
+      /* Mark valid inputs during .invalid state */
+      .invalid input:required:valid {
+        background: #17D654 ;
+      }
+    :javascript
+      function hasHtml5Validation () {
+       return typeof document.createElement('input').checkValidity === 'function';
+      }
+
+      console.log(hasHtml5Validation())
+      if (hasHtml5Validation()) {
+
+      }

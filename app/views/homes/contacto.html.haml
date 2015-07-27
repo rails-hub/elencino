@@ -75,7 +75,7 @@
                 .col-md-12.col-lg-8.col-lg-offset-2
                   %form#form4{:remote => true}
                     .form-group
-                      %input.form-control{:id => 'username' ,:name => "username", :placeholder => "Nombre1 Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                      %input.form-control{:id => 'username' ,:name => "username", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
                       %input.form-control{:id => 'email' ,:name => "email" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                     .form-group
@@ -143,6 +143,15 @@
 :javascript
   $(document).on("submit", "#form4", function(event)
   {
+    if (!this.checkValidity()) {
+        // Prevent default stops form from firing
+        e.preventDefault();
+        $(this).addClass('invalid');
+        $('#status').html('invalid');
+        } else {
+        $(this).removeClass('invalid');
+        $('#status').html('submitted');
+        }
       var id = 'form4';
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
