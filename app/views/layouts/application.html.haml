@@ -17,21 +17,18 @@
     = yield
 
 
+    %script{:src => "/assets/js-webshim/minified/polyfiller.js"}
     :css
-      .invalid input:required:invalid{
-        background: #BE4C54
-       }
-
-      /* Mark valid inputs during .invalid state */
-      .invalid input:required:valid {
-        background: #17D654 ;
-      }
+      .error {
+      		border:1px solid red;
+      		background: #ff0000;
+      	}
     :javascript
-      function hasHtml5Validation () {
-       return typeof document.createElement('input').checkValidity === 'function';
-      }
-
-      console.log(hasHtml5Validation())
-      if (hasHtml5Validation()) {
-
-      }
+      webshims.polyfill();
+      $(function(){
+            // work with the HTML5 API
+            $('input:invalid').each(function(){
+                $(this).after( $.prop(this, 'validationMessage') );
+            });
+            // ...
+        });

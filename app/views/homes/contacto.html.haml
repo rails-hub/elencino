@@ -10,6 +10,7 @@
 %script{:src => "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"}
 / jQuery (necessary for Bootstrap's JavaScript plugins)
 %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+
 #wrapper.wrapper.container-fluid
   .menu-holder
   %button.navbar-toggle.collapsed.toggle-menu{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
@@ -143,19 +144,6 @@
 :javascript
   $(document).on("submit", "#form4", function(event)
   {
-    alert(this.checkValidity());
-    if (!this.checkValidity()) {
-        alert('not');
-        // Prevent default stops form from firing
-        e.preventDefault();
-        $(this).addClass('invalid');
-        $('#status').html('invalid');
-        } else {
-        alert('valid')
-        $(this).removeClass('invalid');
-        $('#status').html('submitted');
-     }
-      return false;
       var id = 'form4';
       var email = $('#'+id).find('#email').val();
       var username = $('#'+id).find('#username').val();
@@ -184,3 +172,4 @@
           }
       });
   });
+
