@@ -3,14 +3,23 @@
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 </head>
-<body>
+<body class="mail-class">
 <br/>
-<h2>Username: <%= @username %></h2>
+Username: <%= @username %>
 <br/>
-<h2>Email: <%= @email %></h2>
+Email: <%= @email %>
 <br/>
-<h2>Phone: <%= @phone %></h2>
+Phone: <%= @phone %>
 <br/>
-<h2>Message: <%= @msg %></h2>
+Message: <%= @msg %>
 </body>
 </html>
+
+<style>
+    .mail-class {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: normal;
+    }
+</style>
