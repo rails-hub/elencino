@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   attr_accessor :login
   before_save :add_search_terms
 
+  has_many :phases
+
+
   validates :username,
             :presence => true,
             :uniqueness => {

@@ -1,7 +1,6 @@
 .card.card-container
   %h2
     = @user.new_record? ? "Add Salesman" :  "Edit Salesman"
-  -#= simple_form_for([:admin, @student], :url => admin_students_path, :method => :post, :html => {:class => 'form-signin'}) do |f|
   = simple_form_for([:admin, @user], :html => {:class => 'form-signin'}) do |f|
     = f.error_notification
     .form-group

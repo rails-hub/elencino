@@ -14,6 +14,13 @@ class Admin::SalesmansController < Admin::AdminsController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "User Destroyed Successfully."
+    redirect_to admin_salesmans_path
+  end
+
   private
 
   def admin_params

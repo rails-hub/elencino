@@ -2,12 +2,12 @@
 #page-wrapper
   .row
     .col-lg-12
-      %h2 Managers
+      %h2 Phases
       .panel.panel-default
         .panel-heading
           %i.fa.fa-bar-chart-o.fa-fw
           %span
-            = link_to 'Add New', new_admin_manager_path, :class => "btn btn-primary btn-sm"
+            = link_to 'Add New', new_admin_phase_path, :class => "btn btn-primary btn-sm"
         / /.panel-heading
         .panel-body
           .row
@@ -18,18 +18,15 @@
                     %tr
                       %th #
                       %th Name
-                      %th Username
                       %th Actions
                   %tbody
-                    -unless @users.blank?
-                      - @users.each_with_index do |user, index|
+                    -unless @phases.blank?
+                      - @phases.each_with_index do |phase, index|
                         %tr
                           %td
                             = index + 1
                           %td
-                            = user.name
+                            = phase.name
                           %td
-                            = user.username
-                          %td
-                            = link_to("edit", edit_admin_manager_path(user))
-                            = link_to 'Delete',url_for(action: :destroy,id: user.id),method: :delete, data: {confirm: "Are you sure?"}
+                            = link_to("edit", edit_admin_phase_path(phase))
+                            = link_to 'Delete',url_for(action: :destroy,id: phase.id),method: :delete, data: {confirm: "Are you sure?"}

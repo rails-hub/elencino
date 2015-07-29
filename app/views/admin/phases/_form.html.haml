@@ -1,0 +1,10 @@
+.card.card-container
+  %h2
+    = @phase.new_record? ? "Add Phase" :  "Edit Phase"
+  = simple_form_for([:admin, @phase], :html => {:class => 'form-signin'}) do |f|
+    = f.error_notification
+    .form-group
+      = f.input :name, required: true, autofocus: true, :class => 'form-control'
+    .form-actions
+      = f.button :submit, "Submit"
+

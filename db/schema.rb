@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729075257) do
+ActiveRecord::Schema.define(version: 20150729120425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
   enable_extension "uuid-ossp"
+
+  create_table "phases", force: true do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phases", ["name"], name: "index_phases_on_name", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
