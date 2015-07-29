@@ -1,0 +1,29 @@
+- if current_user.has_role? :admin
+  %nav.navbar.navbar-default.navbar-static-top{:role => "navigation", :style => "margin-bottom: 0"}
+    .navbar-default.sidebar{:role => "navigation"}
+      .sidebar-nav.navbar-collapse
+        %ul#side-menu.nav
+          %li
+            %a{:href => "/admin"}
+              %i.fa.fa-dashboard.fa-fw
+              Dashboard
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-bar-chart-o.fa-fw
+              Users
+            %ul.nav.nav-second-level
+              %li
+                %a{:href => "/admin/users?type=manager"} Managers
+              %li
+                %a{:href => "/admin/users?type=salesman"} Salesman
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-bar-chart-o.fa-fw
+              Land
+            %ul.nav.nav-second-level
+              %li
+                %a{:href => "/admin/phases"} Phases
+              %li
+                %a{:href => "/admin/blocks"} Blocks
+              %li
+                %a{:href => "/admin/lots"} Lots

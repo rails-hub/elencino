@@ -20,7 +20,12 @@ Elencino::Application.routes.draw do
   end
 
   namespace :admin do
+    get '/' => 'admins#index'
     resources :admins
+    resources :users
+    resources :managers
+    resources :salesmans
+
   end
 
   root :to => 'homes#index'
