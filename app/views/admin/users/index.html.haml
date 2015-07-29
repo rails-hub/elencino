@@ -5,9 +5,11 @@
       .panel.panel-default
         .panel-heading
           %i.fa.fa-bar-chart-o.fa-fw
-          Add User
           %span
-            = link_to 'Add New', new_admin_manager_path, :class => "btn btn-primary btn-sm"
+            = link_to 'Add Manager', new_admin_manager_path, :class => "btn btn-primary btn-sm"
+          %i.fa.fa-bar-chart-o.fa-fw
+          %span
+            = link_to 'Add Salesman', new_admin_salesman_path, :class => "btn btn-primary btn-sm"
         / /.panel-heading
         .panel-body
           .row
