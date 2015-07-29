@@ -4,6 +4,8 @@
       .sidebar-nav.navbar-collapse
         %ul#side-menu.nav
           %li
+            = link_to('Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-primary")
+          %li
             %a{:href => "/admin"}
               %i.fa.fa-dashboard.fa-fw
               Dashboard
