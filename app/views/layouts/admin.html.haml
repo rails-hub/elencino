@@ -1,14 +1,14 @@
 !!!
 %html{:lang => "es"}
   %head
-    %title= content_for?(:title) ? yield(:title) : "El Encino"
+    %title= content_for?(:title) ? yield(:title) : "El Encino1"
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
     %meta{ :content => content_for?(:description) ? yield(:description) : "Encino Residencial", :name => "description" }
     %meta{:name => "google-site-verification", content: "k-1PZoIRcMQWKjPFUYo0ff7vWMqs5hzHkc2HhJ_0vyI"}
     %meta{:name => "keywords", content: "El, Encino, Residencial, Querétaro, Queretaro, Ventas, Fraccionamiento, Urbanizacion, Urbanización, Casa, club, Casas, trekCin"}
 
     %link{ :href => "https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,300,700", :rel => "stylesheet", :type => "text/css" }
-    = stylesheet_link_tag :application, :media => "all"
+    = stylesheet_link_tag :admin, :media => "all"
     = javascript_include_tag :application
     = csrf_meta_tags
     = yield(:head)

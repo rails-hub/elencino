@@ -1,6 +1,11 @@
 Elencino::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :skip => :registerable
+
+  devise_scope :user do
+    # match '/admin/users', to: 'admin/users#create', via: :post
+  end
+
   resources :homes do
     collection do
       get :masterplan

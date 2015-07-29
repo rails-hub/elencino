@@ -1,0 +1,19 @@
+<div class="card card-container">
+  <h2>Sign in</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-signin'}) do |f| %>
+      <div class="form-inputs">
+        <%= f.label :login %>
+        <%= f.text_field :login, required: false, autofocus: true, :class => 'form-control', :placeholder => "Email/Username" %>
+        <%= f.input :password, required: false, :class => 'form-control' %>
+        <%= f.input :remember_me, as: :boolean, :class => 'checkbox' if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign in" %>
+      </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+
+</div>
