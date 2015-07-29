@@ -32,7 +32,7 @@ gem 'rollbar', '~> 1.0.0'
 gem 'puma', '~> 2.9.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+gem "rolify"
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'
@@ -54,6 +54,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 
 
 gem 'rails_12factor', group: :production
+gem 'devise'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

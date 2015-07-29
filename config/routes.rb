@@ -1,5 +1,6 @@
 Elencino::Application.routes.draw do
 
+  devise_for :users
   resources :homes do
     collection do
       get :masterplan
@@ -11,6 +12,10 @@ Elencino::Application.routes.draw do
       get :contacto
       get :send_email
     end
+  end
+
+  namespace :admin do
+    resources :admins
   end
 
   root :to => 'homes#index'
