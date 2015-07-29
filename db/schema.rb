@@ -11,12 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729120425) do
+ActiveRecord::Schema.define(version: 20150729125645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
   enable_extension "uuid-ossp"
+
+  create_table "blocks", force: true do |t|
+    t.integer  "block_number", null: false
+    t.integer  "phase_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blocks", ["block_number"], name: "index_blocks_on_block_number", using: :btree
+
+  create_table "lots", force: true do |t|
+    t.integer  "block_id"
+    t.integer  "lot_number"
+    t.float    "area",       default: 0.0,   null: false
+    t.boolean  "status",     default: false, null: false
+    t.float    "price",      default: 0.0,   null: false
+    t.float    "total",      default: 0.0,   null: false
+    t.text     "street",     default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lots", ["lot_number"], name: "index_lots_on_lot_number", using: :btree
 
   create_table "phases", force: true do |t|
     t.string   "name",       default: "", null: false

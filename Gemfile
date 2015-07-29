@@ -33,6 +33,8 @@ gem 'puma', '~> 2.9.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "rolify"
+gem 'roo-xls'
+gem "iconv"
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'

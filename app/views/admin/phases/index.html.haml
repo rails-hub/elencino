@@ -29,4 +29,5 @@
                             = phase.name
                           %td
                             = link_to("edit", edit_admin_phase_path(phase))
+                            = link_to("Details", details_admin_phase_path(phase))
                             = link_to 'Delete',url_for(action: :destroy,id: phase.id),method: :delete, data: {confirm: "Are you sure?"}

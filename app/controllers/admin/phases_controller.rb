@@ -44,6 +44,16 @@ class Admin::PhasesController < Admin::AdminsController
     redirect_to admin_phases_path
   end
 
+  def details
+    @phase = Phase.find(params[:id])
+  end
+
+  def import
+    phase = Phase.find(params[:id])
+    Phase.import(params[:file], phase)
+    redirect_to details_admin_phase_path(phase), notice: "Data imported."
+  end
+
   private
 
   def phase_params

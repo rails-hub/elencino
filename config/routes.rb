@@ -25,7 +25,12 @@ Elencino::Application.routes.draw do
     resources :users
     resources :managers
     resources :salesmans
-    resources :phases
+    resources :phases do
+      member do
+        get :details
+        post :import
+      end
+    end
 
   end
 
