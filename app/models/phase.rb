@@ -20,7 +20,7 @@ class Phase < ActiveRecord::Base
       lot = Lot.where("lot_number = ? and block_id = ?", row['LOTE'].to_i, block.id).first || Lot.new
       lot.lot_number = row["LOTE"].to_i
       lot.block_id = block.id
-      lot.area = row["LOTE"]
+      lot.area = row["M2"]
       lot.street = row["CALLE"]
       lot.price = row["PRECIO"]
       lot.total = row["TOTAL"]

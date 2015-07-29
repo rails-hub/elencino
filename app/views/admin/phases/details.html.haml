@@ -46,11 +46,11 @@
                             %td
                               = lot.area
                             %td
-                              = lot.price
+                              = number_to_currency(lot.price)
                             %td
-                              = lot.status
+                              = lot.status? ? "Sold" : "Not Sold"
                             %td
-                              = lot.total
+                              = number_to_currency(lot.total)
                             -#%td
                               -#= link_to("edit", edit_admin_phase_path(phase))
                               -#= link_to("Import Data", import_admin_phase_path(phase))
