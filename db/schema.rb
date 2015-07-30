@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729125645) do
+ActiveRecord::Schema.define(version: 20150730122558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,30 @@ ActiveRecord::Schema.define(version: 20150729125645) do
   end
 
   add_index "blocks", ["block_number"], name: "index_blocks_on_block_number", using: :btree
+
+  create_table "clients", force: true do |t|
+    t.date     "dob"
+    t.string   "nationality"
+    t.boolean  "gender",          default: true
+    t.text     "occupation"
+    t.boolean  "is_married",      default: false
+    t.string   "rfc"
+    t.string   "curp"
+    t.text     "street"
+    t.string   "interior_number"
+    t.string   "exterior_number"
+    t.string   "suburb"
+    t.string   "municipality"
+    t.string   "state"
+    t.text     "postal_address"
+    t.string   "mobile_number"
+    t.string   "office_number"
+    t.string   "home_number"
+    t.integer  "user_id"
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lots", force: true do |t|
     t.integer  "block_id"

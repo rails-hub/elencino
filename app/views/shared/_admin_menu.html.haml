@@ -18,14 +18,27 @@
                 %a{:href => "/admin/managers"} Managers
               %li
                 %a{:href => "/admin/salesmans"} Salesman
+              %li
+                %a{:href => "/admin/clients"} Clients
           %li
             %a{:href => "/admin/phases"}
               %i.fa.fa-bar-chart-o.fa-fw
               Phases
-            -#%ul.nav.nav-second-level
-            -#  %li
-                %a{:href => "/admin/phases"} Phases
-              -#%li
-              -#  %a{:href => "/admin/blocks"} Blocks
-              -#%li
-                %a{:href => "/admin/lots"} Lots
+- elsif current_user.has_role? :manager
+  %nav.navbar.navbar-default.navbar-static-top{:role => "navigation", :style => "margin-bottom: 0"}
+    .navbar-default.sidebar{:role => "navigation"}
+      .sidebar-nav.navbar-collapse
+        %ul#side-menu.nav
+          %li
+            = link_to('Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-primary")
+          %li
+            %a{:href => "/admin"}
+              %i.fa.fa-dashboard.fa-fw
+              Dashboard
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-bar-chart-o.fa-fw
+              Users
+            %ul.nav.nav-second-level
+              %li
+                %a{:href => "/admin/salesmans"} Salesman

@@ -11,5 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require admin/jquery.tablesorter.min
+//= require admin/bootstrap-datepicker.js
 
 

@@ -8,3 +8,6 @@ en:
       previous: "&lt; Previous"
       next: "Next &gt;"
       truncate: "..."
+  gender_lists:
+    "true": Male
+    "false": Female

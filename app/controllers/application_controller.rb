@@ -9,6 +9,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.has_role? :admin
   end
 
+  def is_admin_or_manager
+    unless current_user.has_role? :admin
+      unless current_user.has_role? :manager
+        redirect_to root_path
+      end
+    end
+  end
+
+
   def is_admin_or_teacher
     unless current_user.has_role? :admin or current_user.has_role? :teacher
       redirect_to root_path

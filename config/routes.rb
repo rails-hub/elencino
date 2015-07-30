@@ -25,6 +25,7 @@ Elencino::Application.routes.draw do
     resources :users
     resources :managers
     resources :salesmans
+    resources :clients
     resources :phases do
       member do
         get :details
