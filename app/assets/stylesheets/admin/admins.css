@@ -371,6 +371,28 @@ table.dataTable thead .sorting:after {
     border-bottom: 1px solid #808080;
 }
 
+th.header {
+    background-image: url(/assets/bg.gif);
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-left: 20px;
+    border-right: 1px solid #dad9c7;
+    margin-left: -1px;
+}
+
+th.headerSortUp {
+    background-image: url(/assets/asc.gif);
+    background-color: #3399FF;
+}
+
+th.headerSortDown {
+    background-image: url(/assets/desc.gif);
+    background-color: #3399FF;
+}
+
+
 .pagination a, .pagination span.current, .pagination span.gap {
     float: left;
     padding: 0 14px;
@@ -409,3 +431,4 @@ table.dataTable thead .sorting:after {
         border: none;
     }
 }
+
