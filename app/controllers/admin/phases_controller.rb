@@ -51,8 +51,9 @@ class Admin::PhasesController < Admin::AdminsController
 
   def import
     phase = Phase.find(params[:id])
-    Phase.import(params[:file], phase)
-    redirect_to details_admin_phase_path(phase), notice: "Data imported."
+    ImportData.new(params[:file], phase).submit
+    flash[:notice] = "Import Job Eunqued, It will be completed in a while."
+    redirect_to details_admin_phase_path(phase)
   end
 
   private

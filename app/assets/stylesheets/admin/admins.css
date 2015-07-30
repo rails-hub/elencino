@@ -381,7 +381,9 @@ th.header {
     border-right: 1px solid #dad9c7;
     margin-left: -1px;
 }
-
+.alert {
+    background: #ffffff;
+}
 th.headerSortUp {
     background-image: url(/assets/asc.gif);
     background-color: #3399FF;

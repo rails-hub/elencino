@@ -36,6 +36,7 @@ gem "rolify"
 gem 'roo-xls'
 gem "iconv"
 gem 'kaminari'
+gem 'sucker_punch'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'
