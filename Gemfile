@@ -35,6 +35,7 @@ gem 'jquery-ui-rails'
 gem "rolify"
 gem 'roo-xls'
 gem "iconv"
+gem 'kaminari'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'

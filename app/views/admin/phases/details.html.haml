@@ -16,6 +16,7 @@
         / /.panel-heading
         .panel-body
           .row
+            = paginate @blocks
             .col-lg-12
               .table-responsive
                 %table.table.table-bordered.table-hover.table-striped
@@ -30,13 +31,13 @@
                       %th Status
                       %th Total
                   %tbody
-                    -unless @phase.blank?
+                    -unless @blocks.blank?
                       - j = 1
-                      - @phase.blocks.each_with_index do |block, index|
+                      - @blocks.each_with_index do |block, index|
                         - block.lots.each_with_index do |lot, i|
                           %tr
                             %td
-                              = j
+                              = lot.id
                             %td
                               = block.block_number
                             %td
@@ -51,11 +52,4 @@
                               = lot.status? ? "Sold" : "Not Sold"
                             %td
                               = number_to_currency(lot.total)
-                            -#%td
-                              -#= link_to("edit", edit_admin_phase_path(phase))
-                              -#= link_to("Import Data", import_admin_phase_path(phase))
-                              -#= form_tag import_admin_phase_path(phase), multipart: true do
-                              -#  = file_field_tag :file
-                              -#  = submit_tag "Import"
-                              -#= link_to 'Delete',url_for(action: :destroy,id: phase.id),method: :delete, data: {confirm: "Are you sure?"}
                           - j =  j + 1

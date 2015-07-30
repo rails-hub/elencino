@@ -46,6 +46,7 @@ class Admin::PhasesController < Admin::AdminsController
 
   def details
     @phase = Phase.find(params[:id])
+    @blocks = @phase.blocks.includes(:lots).page(params[:page]).per(2)
   end
 
   def import
