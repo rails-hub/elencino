@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::AdminsController
   before_action :authenticate_user!
-  before_filter :is_admin_or_manager
+  before_filter :is_admin_or_manager_or_salesman
 
   def create
     user = User.new(admin_params)

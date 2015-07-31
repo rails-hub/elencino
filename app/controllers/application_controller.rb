@@ -17,12 +17,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  def is_admin_or_teacher
-    unless current_user.has_role? :admin or current_user.has_role? :teacher
-      redirect_to root_path
+  def is_admin_or_manager_or_salesman
+    unless current_user.has_role? :admin
+      unless current_user.has_role? :manager
+        unless current_user.has_role? :salesman
+          redirect_to root_path
+        end
+      end
     end
   end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
