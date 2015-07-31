@@ -1,9 +1,10 @@
 class Admin::ClientsController < Admin::AdminsController
   before_action :authenticate_user!
   before_filter :is_admin_or_manager_or_salesman
+  before_filter :can_see_client, :only => [:edit, :update]
 
   def index
-    @users = User.with_role(:client)
+    @users = current_user.my_clients
   end
 
   def new

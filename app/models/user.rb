@@ -47,6 +47,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def my_clients
+    users = []
+    clients = Client.where('created_by = ?', self.id)
+    users = User.where('id IN (?)', clients.collect(&:user_id)) unless clients.blank?
+    users
+  end
+
   private
 
   def add_search_terms

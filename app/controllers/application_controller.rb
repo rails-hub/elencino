@@ -27,6 +27,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def can_see_client
+    user = User.find(params[:id])
+    if Client.where('user_id = ? and created_by = ?', user.id, current_user.id).first.blank?
+      flash[:danger] = "You are not authorized to visit this page."
+      redirect_to admin_clients_path
+    end
+  end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
