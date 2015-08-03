@@ -16,6 +16,23 @@ Elencino::Application.routes.draw do
       get :cotizador
       get :contacto
       get :send_email
+      get :quotation
+    end
+
+    member do
+      get :download_quote
+    end
+  end
+
+  resources :phases do
+    member do
+      get :blocks
+    end
+  end
+
+  resources :blocks do
+    member do
+      get :lots
     end
   end
 

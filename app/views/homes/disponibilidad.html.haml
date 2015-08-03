@@ -134,88 +134,33 @@
               .calculator-box
                 %h4 ¡Cotiza al Instante!
                 %p También recibirás la cotización en tu correo electrónico.
-                %form
+                = form_for :user, :url => {:controller => :homes, :action => :quotation}, :method => :get, :html => {:id => 'quotation-form' , :class => 'form-signin'}, :remote => true do |f|
                   .form-group
-                    %select.form-control
-                      %option Etapa*
-                  .form-group
+                    = f.select :phase , options_for_select(@phases.map{|phase| [phase.name, phase.id]}),  {include_blank: "Etapa*"}, { :class => 'form-control', :required => true, :oninvalid => "$(this).css('border-color', 'red')" }
+                  .form-group#phase-blocks
                     %select.form-control
                       %option Manzana*
-                  .form-group
+                  .form-group#block-lots
                     %select.form-control
                       %option Lote*
                   .form-group
-                    %input.form-control{:placeholder => "Nombre Completo*", :type => "text"}/
+                    %input.form-control{:id => 'username', :class => "UUsername" ,:name => "user[username]", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                   .form-group
-                    %input.form-control{:placeholder => "Correo Electrónico*", :type => "email"}/
+                    %input.form-control{:id => 'email', :class => "UEmail"  ,:name => "user[email]" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                   .form-group
-                    %input.form-control{:placeholder => "Número Telefónico (10 digitos)*", :type => "text"}/
+                    %input.form-control{:id => 'phone', :class => "UPhone"  ,:name => "user[phone]", :oninput => "if(value.length>10)value=value.slice(0,10)" ,:placeholder => "Número Telefónico (10 digitos)*", :pattern => '[0-9]{10}' ,:type => "text" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                   %p
                     Incrementos en precios de lista sin previo aviso.
                     %br/
                     En caso de incremento su cotización será válida únicamente por 5 días naturales tras recibir su correo.
                   %br/
-                  .text-center#flash-message1{:style => "visibility: hidden"}
-                    %span.message> Pronto serás contactado.
-                       
+                  .text-center
+                    %span.message#flash-message1{:style => "visibility: hidden; width: 40%; float: left"}
+                      Pronto serás contactado.
                     %button.btn.btn-warning     Realizar Cotización    
             .col-md-7.no-padding-left
-              .encino-box
-                ._hidden
-                  %h4.clearfix
-                    Cotización - Manzana 04 Lote 09
-                    %img.pull-right{:src => "/assets/edit.png"}/
-                  .row
-                    .col-md-6
-                      %p
-                        Superficie: 269.79m2
-                        %br/
-                        Precio de Lista: $2,044.22
-                    .col-md-6
-                      %p.text-right
-                        Impote Total: $551,489.67
-                        %br/
-                        Apartado de $20,000.00
-                  .row
-                    .col-md-12
-                      %h4.clearfix
-                        36 Meses Sin Intereses
-                        %img.pull-right{:src => "/assets/calendar.png"}/
-                      %ul
-                        %li
-                          30% Enganche:$165,446.90
-                          %br/
-                          Primer Pago:$145,446.90
-                          %br/
-                          36 Mensualidades de:$10,723.41
-                      %h4.clearfix
-                        50% Enganche
-                        %img.pull-right{:src => "/assets/puzzle.png"}/
-                      %ul
-                        %li
-                          Precio por m2:$1,839.80 (10% desc.)
-                          %br/
-                          Importe Total:$496,340.70
-                          %br/
-                          50% Enganche:$248,170.35
-                          %br/
-                          Primer Pago:$228,170.35
-                          %br/
-                          Segundo Pago:$248,170.35
-                      %h4.clearfix
-                        Pago de Contado
-                        %img.pull-right{:src => "/assets/payment.png"}/
-                      %ul
-                        %li
-                          Precio por m2:$1,655.82 (10% adicional)
-                          %br/
-                          Importe Total:$446,706.63
-                          %br/
-                          Finiquito:$446,706.63
-                  .text-right
-                    %a{:href => "#"}
-                      %img{:src => "/assets/download-icon.png"}>/
-                         Guardar Cotización
+              .encino-box#shared-quotation
+                = render "shared/quotation"
         %br/
         %br/
         %br/
@@ -354,3 +299,4 @@
         %img{:src => "/assets/promessa-logo-footer.png"}/
   #copyright
     %span Desarrollado por Startup Mexico S.A. de C.V. - (442) 412 03 91
+

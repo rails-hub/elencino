@@ -37,6 +37,8 @@ gem 'roo-xls'
 gem "iconv"
 gem 'kaminari'
 gem 'sucker_punch'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'

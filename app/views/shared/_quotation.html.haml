@@ -1,0 +1,59 @@
+- unless @lot.blank?
+  ._hidden#form-right
+    %h4.clearfix
+      Cotización - Manzana #{@lot.block_id} Lote #{@lot.lot_number}
+      %img.pull-right{:src => "/assets/edit.png"}/
+    .row
+      .col-md-6
+        %p
+          Superficie: #{@lot.area}m2
+          %br/
+          Precio de Lista: #{number_to_currency(@lot.price)}
+      .col-md-6
+        %p.text-right
+          Impote Total: #{number_to_currency(@lot.total)}
+          %br/
+          Apartado de #{number_to_currency(ENV["APARTADO"].to_f)}
+    .row
+      .col-md-12
+        %h4.clearfix
+          36 Meses Sin Intereses
+          %img.pull-right{:src => "/assets/calendar.png"}/
+        %ul
+          %li
+            30% Enganche:#{number_to_currency(enganche(@lot))}
+            %br/
+            Primer Pago:#{number_to_currency(primer(@lot))}
+            %br/
+            36 Mensualidades de:#{number_to_currency(mensualidades(@lot))}
+        %h4.clearfix
+          50% Enganche
+          %img.pull-right{:src => "/assets/puzzle.png"}/
+        %ul
+          %li
+            Precio por m2:#{number_to_currency(precio_por_m2(@lot))} (10% desc.)
+            %br/
+            Importe Total:#{number_to_currency(importe_total(@lot))}
+            %br/
+            50% Enganche:#{number_to_currency(enganche_fifty(@lot)) }
+            %br/
+            Primer Pago:#{number_to_currency(primer_pago(@lot))}
+            %br/
+            Segundo Pago:#{number_to_currency(enganche_fifty(@lot)) }
+        %h4.clearfix
+          Pago de Contado
+          %img.pull-right{:src => "/assets/payment.png"}/
+        %ul
+          %li
+            Precio por m2:#{number_to_currency(precio_por(@lot))} (10% adicional)
+            %br/
+            Importe Total:#{number_to_currency(importe(@lot)) }
+            %br/
+            Finiquito:#{number_to_currency(finiquito(@lot)) }
+      .text-right
+        %a{:href => "/homes/#{@lot.id}/download_quote" , :target => "_blank"}
+          %img{:src => "/assets/download-icon.png"}>/
+             Guardar Cotización
+-else
+  .frame
+    %img(src="/assets/imgo.jpg" )

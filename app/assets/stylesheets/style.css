@@ -675,3 +675,17 @@ img.mw100 {
   #main-banner .info-form {
     left: auto;
     right: 75px; } }
+.frame {
+    margin: 1em 0;
+      height: 500px;
+      position: relative;
+  }
+.frame > img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: #3A6F9A;
+}
