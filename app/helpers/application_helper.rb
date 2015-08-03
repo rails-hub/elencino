@@ -8,4 +8,8 @@ module ApplicationHelper
     I18n.t(:matrimonial_regime_lists).map { |key, value| [ value, key ] }
   end
 
+  def lot_status_lists
+    I18n.t(:lot_status_lists).map { |key, value| [ value, key ] }
+  end
+
 end

@@ -24,6 +24,10 @@
             %a{:href => "/admin/phases"}
               %i.fa.fa-bar-chart-o.fa-fw
               Phases
+            %ul.nav.nav-second-level
+              %li
+                %a{:href => "/admin/lots"} Lots
+
 - elsif current_user.has_role? :manager
   %nav.navbar.navbar-default.navbar-static-top{:role => "navigation", :style => "margin-bottom: 0"}
     .navbar-default.sidebar{:role => "navigation"}

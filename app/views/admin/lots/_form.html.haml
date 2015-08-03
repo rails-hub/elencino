@@ -1,0 +1,15 @@
+.card.card-container
+  %h2
+    = @lot.new_record? ? "Add Lot" :  "Edit Lot"
+  = simple_form_for([:admin, @lot], :html => {:class => 'form-signin'}) do |f|
+    = f.error_notification
+    .form-group
+      = f.input :area, required: true, :class => 'form-control'
+      = f.label :status
+      = f.select :status , lot_status_lists, :selected => @lot.new_record? ? "true" : @lot.status
+      = f.input :price, required: true, :class => 'form-control'
+      = f.input :total, required: true, :class => 'form-control'
+      = f.input :street, required: true, :class => 'form-control'
+    .form-actions
+      = f.button :submit, "Submit"
+

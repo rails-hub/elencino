@@ -1,0 +1,50 @@
+= render "shared/admin_menu"
+#page-wrapper
+  .row
+    .col-lg-12
+      %h2 Lots
+      .panel.panel-default
+        .panel-heading
+          %i.fa.fa-bar-chart-o.fa-fw
+          %span
+            -#= link_to 'Add New', new_admin_lot_path, :class => "btn btn-primary btn-sm"
+        / /.panel-heading
+        .panel-body
+          .row
+            .col-lg-12
+              .table-responsive
+                %table.table.table-bordered.table-hover.table-striped
+                  %thead
+                    %tr
+                      %th #
+                      %th Street
+                      %th Block Id
+                      %th Lot Number
+                      %th Area
+                      %th Status
+                      %th Price
+                      %th Total
+                      %th Actions
+                  %tbody
+                    -unless @lots.blank?
+                      - @lots.each_with_index do |lot, index|
+                        %tr
+                          %td
+                            = index + 1
+                          %td
+                            = lot.street
+                          %td
+                            = lot.block_id
+                          %td
+                            = lot.lot_number
+                          %td
+                            = lot.area
+                          %td
+                            = lot.status? ? "Sold" : "Not Sold"
+                          %td
+                            = number_to_currency(lot.price)
+                          %td
+                            = number_to_currency(lot.total)
+                          %td
+                            = link_to("edit", edit_admin_lot_path(lot))
+                            = link_to 'Delete',url_for(action: :destroy,id: lot.id),method: :delete, data: {confirm: "Are you sure?"}
