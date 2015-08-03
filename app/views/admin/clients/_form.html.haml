@@ -23,6 +23,7 @@
       -#= hidden_field_tag "user[password_confirmation]", ENV["ADMIN_PWD"]
       -#= f.simple_fields_for :client do |c|
       .mat_reg(style="display: #{@user.new_record? ? 'none' : @user.married ? 'block' : 'none' }" )
+        = f.label :matrimonial_regime
         = f.select :matrimonial_regime, matrimonial_regime_lists, :selected => @user.new_record? ? "Bienes Separados" : @user.matrimonial_regime
       = f.input :rfc, required: false ,:html => { :class => 'form-control' }
       = f.input :curp, required: false,:html => { :class => 'form-control' }
