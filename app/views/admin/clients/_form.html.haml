@@ -4,34 +4,38 @@
   = simple_form_for([:admin, @user], :html => {:class => 'form-signin'}) do |f|
     = f.error_notification
     .form-group
-      = f.input :first_name, required: true, autofocus: true, :class => 'form-control'
-      = f.input :last_name, required: true, :class => 'form-control'
-      = f.input :username, required: true, :class => 'form-control'
+      = f.input :name, required: true, autofocus: true, :class => 'form-control'
+      = f.input :first_last_name, required: true, autofocus: true, :class => 'form-control'
+      = f.input :second_last_name, required: true, :class => 'form-control'
       = hidden_field_tag "user[type]", "client"
-      = f.input :email, :class => 'form-control'
-      = hidden_field_tag "user[password]", ENV["ADMIN_PWD"]
-      = hidden_field_tag "user[password_confirmation]", ENV["ADMIN_PWD"]
-      = f.simple_fields_for :client do |c|
-        = c.input :dob, required: false,:html => { :class => 'form-control datepicker' }
-        = c.input :nationality, required: false, :class => 'form-control'
-        = c.label :gender
-        = c.select :gender , gender_lists, :selected => @user.new_record? ? "true" : @user.client.gender
-        = c.input :occupation, required: false,:html => { :class => 'form-control' }
-        %div{:style => "float: left; width: 100%"}
-          = c.check_box :is_married, {:checked => @user.new_record? ? false : @user.client.is_married}
-          = c.label :is_married ,required: false, :style => "float: left"
-        = c.input :rfc, required: false ,:html => { :class => 'form-control' }
-        = c.input :curp, required: false,:html => { :class => 'form-control' }
-        = c.input :street, required: false,:html => { :class => 'form-control' }
-        = c.input :interior_number, required: false,:html => { :class => 'form-control' }
-        = c.input :exterior_number, required: false,:html => { :class => 'form-control' }
-        = c.input :suburb, required: false,:html => { :class => 'form-control' }
-        = c.input :municipality, required: false,:html => { :class => 'form-control' }
-        = c.input :state, required: false,:html => { :class => 'form-control' }
-        = c.input :postal_address, required: false,:html => { :class => 'form-control' }
-        = c.input :mobile_number, required: false,:html => { :class => 'form-control' }
-        = c.input :office_number, required: false,:html => { :class => 'form-control' }
-        = c.input :home_number, required: false,:html => { :class => 'form-control' }
+      = f.input :date_of_birth, required: false,:html => { :class => 'form-control datepicker' }
+      = f.input :nationality, required: false, :class => 'form-control'
+      = f.input :municipality_of_birth, required: false, :class => 'form-control'
+      = f.input :state_of_birth, required: false, :class => 'form-control'
+      = f.label :sex
+      = f.select :sex , gender_lists, :selected => @user.new_record? ? "true" : @user.sex
+      = f.input :occupation, required: false,:html => { :class => 'form-control' }
+      = f.input :email, required: true, :class => 'form-control'
+      %div{:style => "float: left; width: 100%"}
+        = f.check_box :married, {:checked => @user.new_record? ? false : @user.married}
+        = f.label :married ,required: false, :style => "float: left"
+      -#= hidden_field_tag "user[password]", ENV["ADMIN_PWD"]
+      -#= hidden_field_tag "user[password_confirmation]", ENV["ADMIN_PWD"]
+      -#= f.simple_fields_for :client do |c|
+      .mat_reg(style="display: #{@user.new_record? ? 'none' : @user.married ? 'block' : 'none' }" )
+        = f.select :matrimonial_regime, matrimonial_regime_lists, :selected => @user.new_record? ? "Bienes Separados" : @user.matrimonial_regime
+      = f.input :rfc, required: false ,:html => { :class => 'form-control' }
+      = f.input :curp, required: false,:html => { :class => 'form-control' }
+      = f.input :street, required: false,:html => { :class => 'form-control' }
+      = f.input :interior_number, required: false,:html => { :class => 'form-control' }
+      = f.input :exterior_number, required: false,:html => { :class => 'form-control' }
+      = f.input :suburb, required: false,:html => { :class => 'form-control' }
+      = f.input :municipality, required: false,:html => { :class => 'form-control' }
+      = f.input :state, required: false,:html => { :class => 'form-control' }
+      = f.input :postal_address, required: false,:html => { :class => 'form-control' }
+      = f.input :mobile_number, required: false,:html => { :class => 'form-control' }
+      = f.input :office_number, required: false,:html => { :class => 'form-control' }
+      = f.input :home_number, required: false,:html => { :class => 'form-control' }
     .form-actions
       = f.button :submit, "Submit"
 
@@ -43,4 +47,8 @@
    });
      $("input[name='user[client][dob]']").datepicker({
     format: 'yyyy-mm-dd'
+   });
+
+   $('#client_married').click(function(){
+     $('.mat_reg').toggle();
    });

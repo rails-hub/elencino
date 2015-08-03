@@ -11,3 +11,6 @@ en:
   gender_lists:
     "true": Male
     "false": Female
+  matrimonial_regime_lists:
+    "Bienes Separados": Bienes Separados
+    "Bienes Mancomunados": Bienes Mancomunados

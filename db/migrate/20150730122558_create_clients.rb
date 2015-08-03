@@ -1,25 +1,31 @@
 class CreateClients < ActiveRecord::Migration
   def change
     create_table :clients do |t|
-      t.date :dob
+      t.string :name,              null: false, default: ""
+      t.string :first_last_name,              null: false, default: ""
+      t.string :second_last_name,              null: false, default: ""
+      t.date :date_of_birth
       t.string :nationality
-      t.boolean :gender, :default => true
-      t.text :occupation
-      t.boolean :is_married, :default => false
+      t.string :municipality_of_birth
+      t.string :state_of_birth
+      t.boolean :sex, :default => true
+      t.string :occupation
+      t.boolean :married, :default => false
+      t.string :matrimonial_regime
       t.string :rfc
       t.string :curp
-      t.text :street
+      t.string :street
       t.string :interior_number
       t.string :exterior_number
       t.string :suburb
       t.string :municipality
       t.string :state
-      t.text :postal_address
+      t.string :postal_address
       t.string :mobile_number
       t.string :office_number
       t.string :home_number
-      t.references :user
-      t.integer :created_by
+      t.string :email,              null: false, default: ""
+      t.integer :salesman_id
       t.timestamps
     end
   end

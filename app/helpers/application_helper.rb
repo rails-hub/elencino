@@ -4,4 +4,8 @@ module ApplicationHelper
     I18n.t(:gender_lists).map { |key, value| [ value, key ] }
   end
 
+  def matrimonial_regime_lists
+    I18n.t(:matrimonial_regime_lists).map { |key, value| [ value, key ] }
+  end
+
 end

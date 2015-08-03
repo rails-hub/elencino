@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   before_save :add_search_terms
 
   has_many :phases
-  has_one :client, dependent: :destroy
+  # has_one :client, dependent: :destroy
 
-  accepts_nested_attributes_for :client
+  # accepts_nested_attributes_for :client
 
 
   validates :username,

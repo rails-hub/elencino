@@ -28,25 +28,31 @@ ActiveRecord::Schema.define(version: 20150730122558) do
   add_index "blocks", ["block_number"], name: "index_blocks_on_block_number", using: :btree
 
   create_table "clients", force: true do |t|
-    t.date     "dob"
+    t.string   "name",                  default: "",    null: false
+    t.string   "first_last_name",       default: "",    null: false
+    t.string   "second_last_name",      default: "",    null: false
+    t.date     "date_of_birth"
     t.string   "nationality"
-    t.boolean  "gender",          default: true
-    t.text     "occupation"
-    t.boolean  "is_married",      default: false
+    t.string   "municipality_of_birth"
+    t.string   "state_of_birth"
+    t.boolean  "sex",                   default: true
+    t.string   "occupation"
+    t.boolean  "married",               default: false
+    t.string   "matrimonial_regime"
     t.string   "rfc"
     t.string   "curp"
-    t.text     "street"
+    t.string   "street"
     t.string   "interior_number"
     t.string   "exterior_number"
     t.string   "suburb"
     t.string   "municipality"
     t.string   "state"
-    t.text     "postal_address"
+    t.string   "postal_address"
     t.string   "mobile_number"
     t.string   "office_number"
     t.string   "home_number"
-    t.integer  "user_id"
-    t.integer  "created_by"
+    t.string   "email",                 default: "",    null: false
+    t.integer  "salesman_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

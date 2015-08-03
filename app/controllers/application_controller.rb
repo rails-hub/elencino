@@ -28,8 +28,8 @@ class ApplicationController < ActionController::Base
   end
 
   def can_see_client
-    user = User.find(params[:id])
-    if Client.where('user_id = ? and created_by = ?', user.id, current_user.id).first.blank?
+    user = User.find(current_user.id)
+    if Client.where('id = ? and salesman_id = ?', params[:id], user.id).first.blank?
       flash[:danger] = "You are not authorized to visit this page."
       redirect_to admin_clients_path
     end
