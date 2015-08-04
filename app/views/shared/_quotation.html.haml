@@ -62,11 +62,11 @@
 :javascript
   function can_download(id){
 
-    if($('.UUsername').checkValidity() == false || $('.UEmail').checkValidity() == false || $('.UPhone').checkValidity() == false) {
-      return false
-    }
-    else {
+    //if($('.UUsername').checkValidity() == false || $('.UEmail').checkValidity() == false || $('.UPhone').checkValidity() == false) {
+    //  return false
+    //}
+    //else {
        var url = '/homes/'+id+'/download_quote.pdf';
        window.open(url, '_blank');
-    }
+    //}
   }
