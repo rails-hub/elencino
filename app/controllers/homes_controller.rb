@@ -50,7 +50,7 @@ class HomesController < ApplicationController
      kit = PDFKit.new(html, :page_size => 'Letter')
      kit.stylesheets << "#{Rails.root.to_s}/app/assets/stylesheets/quote.css"
      pdf = kit.to_pdf
-     send_data pdf, :type => 'application/pdf', :filename => 'ElencinoQuotation.pdf'
+     send_data pdf, :type => 'application/pdf', :filename => "El Encino - [#{@lot.block.phase.name}] - M#{@lot.block.block_number}L#{@lot.lot_number}.pdf"
 
      # htm = render_to_string(:partial => 'homes/download_quote.html.haml')
      # respond_to do |format|
