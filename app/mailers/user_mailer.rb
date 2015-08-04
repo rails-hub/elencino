@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
 
   def quotation_email(lot, pdf, user_email)
     @lot = lot
-    attachments['elencino_quotation.pdf'] = pdf
+    attachments["Cotización - Manzana #{@lot.block.block_number} Lote #{@lot.lot_number}.pdf"] = pdf
     mail(to: "#{user_email}", subject: "Cotización - Manzana #{@lot.block.block_number} Lote #{@lot.lot_number}")
   end
 
