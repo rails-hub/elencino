@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body class="mail-class">
+<br/>
+Username: <%= @username %>
+<br/>
+Email: <%= @email %>
+<br/>
+Phone: <%= @phone %>
+<br/>
+<% if @msg != nil && !@msg.blank?  %>
+Message: <%= @msg %>
+<%end%>
+</body>
+</html>
+
+<style>
+    .mail-class {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: normal;
+    }
+</style>

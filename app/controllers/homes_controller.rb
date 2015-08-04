@@ -70,6 +70,7 @@ class HomesController < ApplicationController
     kit.stylesheets << "#{Rails.root.to_s}/app/assets/stylesheets/quote.css"
     pdf = kit.to_pdf
     UserMailer.quotation_email(lot, pdf, user_params[:email]).deliver
+    UserMailer.quotation_email_admin(lot, user_params[:email], user_params[:username], user_params[:phone], user_params[:msg]).deliver
   end
 
   private
