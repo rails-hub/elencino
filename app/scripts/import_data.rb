@@ -31,17 +31,19 @@ class ImportData
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       block = Block.where("block_number = ? and phase_id = ?", row['MZ'].to_i, @phase.id).first || Block.new
-      block.block_number = row["MZ"].to_i
-      block.phase_id = @phase.id
-      block.save
-      lot = Lot.where("lot_number = ? and block_id = ?", row['LOTE'].to_i, block.id).first || Lot.new
-      lot.lot_number = row["LOTE"].to_i
-      lot.block_id = block.id
-      lot.area = row["M2"]
-      lot.street = row["CALLE"]
-      lot.price = row["PRECIO"]
-      lot.total = row["TOTAL"]
-      lot.save
+      if row["MZ"].to_i != 0
+        block.block_number = row["MZ"].to_i
+        block.phase_id = @phase.id
+        block.save!
+        lot = Lot.where("lot_number = ? and block_id = ?", row['LOTE'].to_i, block.id).first || Lot.new
+        lot.lot_number = row["LOTE"].to_i
+        lot.block_id = block.id
+        lot.area = row["M2"]
+        lot.street = row["CALLE"]
+        lot.price = row["PRECIO"]
+        lot.total = row["TOTAL"]
+        lot.save
+      end
     end
   end
 
