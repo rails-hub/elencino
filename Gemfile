@@ -39,6 +39,8 @@ gem 'kaminari'
 gem 'sucker_punch'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
+gem 'roadie', '~> 2.4'
+gem "doc_raptor"
 
 group :development, :test do
   gem 'dotenv-rails', '~> 0.11.1'

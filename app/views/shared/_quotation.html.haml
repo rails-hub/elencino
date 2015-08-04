@@ -51,9 +51,9 @@
             %br/
             Finiquito:#{number_to_currency(finiquito(@lot)) }
       .text-right
-        %a{:href => "/homes/#{@lot.id}/download_quote" , :target => "_blank"}
+        %a{:href => "/homes/#{@lot.id}/download_quote.pdf" , :target => "_blank"}
           %img{:src => "/assets/download-icon.png"}>/
              Guardar Cotización
 -else
   .frame
-    %img(src="/assets/imgo.jpg" )
+    %img(src="/assets/imgo.png" )

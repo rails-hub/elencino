@@ -40,27 +40,36 @@ class HomesController < ApplicationController
 
   def quotation
      @lot = Lot.where('id= ?', user_params[:lot]).first
+     send_quotation(@lot) if user_params[:type] === "both"
      render "shared/_quotation"
   end
 
   def download_quote
      @lot = Lot.find(params[:id])
-     # html =  render_to_string(:partial => 'shared/download_quote')
-     # kit = PDFKit.new(html)
-     #
-     # # confirm the export directory exists
-     # export_directory = "#{Rails.root}/tmp/quotes"
-     # Dir.mkdir(export_directory) unless Dir.exist?(export_directory)
-     #
-     # # create unique directory for this export
-     # file_directory = "#{export_directory}/#{SecureRandom.hex}"
-     # Dir.mkdir(file_directory) unless Dir.exist?(file_directory)
-     #
-     # # generate the file - this should use kit.to_pdf to do it all in memory, but there appears to be a bug in kit.to_pdf
-     # file = kit.to_file("#{file_directory}/#{file_name}.pdf")
-     #
-     # render :json => {:url => export_file.asset.url}
+     html = render_to_string(:partial => 'homes/download_quote.html.haml')
+     kit = PDFKit.new(html, :page_size => 'Letter')
+     kit.stylesheets << "#{Rails.root.to_s}/app/assets/stylesheets/quote.css"
+     pdf = kit.to_pdf
+     send_data pdf, :type => 'application/pdf', :filename => 'ElencinoQuotation.pdf'
 
+     # htm = render_to_string(:partial => 'homes/download_quote.html.haml')
+     # respond_to do |format|
+     #   format.pdf do
+     #     data = DocRaptor.create(:document_content => htm, :document_type => "pdf")
+     #     send_data data, :type => 'application/pdf', :filename => 'ElencinoQuotation.pdf'
+     #   end
+     #   format.html do
+     #     render "homes/_download_quote.html.haml"
+     #   end
+     # end
+  end
+
+  def send_quotation(lot)
+    html = render_to_string(:partial => 'homes/download_quote.html.haml')
+    kit = PDFKit.new(html, :page_size => 'Letter')
+    kit.stylesheets << "#{Rails.root.to_s}/app/assets/stylesheets/quote.css"
+    pdf = kit.to_pdf
+    UserMailer.quotation_email(lot, pdf, user_params[:email]).deliver
   end
 
   private
@@ -70,6 +79,6 @@ class HomesController < ApplicationController
   end
 
   def user_params
-    params.permit(:phase , :block, :lot, :username, :email, :phone)
+    params.require(:user).permit(:phase , :block, :lot, :username, :email, :phone, :type)
   end
 end

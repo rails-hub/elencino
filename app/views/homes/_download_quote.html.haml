@@ -112,3 +112,80 @@
             %small *Tras realizar su apartado contará con 30 días para elegir su forma de pago.
   %img.mw100{:alt => "", :src => "/assets/quote/footer.jpg"}/
 / <img class="mw100" src="img/TEMP-3.png" alt="">
+
+:css
+  @media print {
+    h1, h2, h3, h4, h5, h6 {
+      color: #49596b;
+      font-family: "Helvetica Neue", Helvetica, sans-serif; }
+
+    p {
+      color: #9caebb;
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      font-weight: 200; }
+
+    h3 {
+      padding-bottom: 2px;
+      padding-top: 10px;
+      margin-bottom: 0px;
+      font-size: 22px;
+      font-weight: 500;
+      border-bottom: 2px solid #68B66A;
+      background-repeat: no-repeat;
+      background-position: 100% -8px; }
+
+    .mw100 {
+      margin: 0 auto;
+      display: block;
+      max-width: 100%; }
+
+    .container {
+      margin: 0px auto;
+      padding: 0px 30px;
+      width: 920px; }
+
+    .top-table p {
+      padding-top: 0px;
+      margin-top: 8px; }
+
+    .tables .td-container {
+      display: table;
+      margin-right: 13px;
+      padding: 18px;
+      height: 371px;
+      box-sizing: border-box;
+      background-color: #EEEEEB; }
+      .tables .td-container h3 {
+        margin-top: 0px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-size: 19px;
+        border-bottom: 2px solid #68B66A;
+        background-repeat: no-repeat;
+        background-position: 100% -4px; }
+      .tables .td-container p {
+        margin-right: 22px;
+        font-size: 13px;
+        color: #97A7AE; }
+      .tables .td-container h4 {
+        display: table-row;
+        vertical-align: bottom;
+        text-align: center;
+        height: 58px;
+        font-size: 18px; }
+    .tables tr td:nth-child(2) .td-container {
+      margin-left: 11px; }
+    .tables tr td:last-child .td-container {
+      margin-left: 12px;
+      margin-right: 0px; }
+
+    .footer-details p strong {
+      font-weight: 500;
+      font-size: 12px; }
+    .footer-details .offset {
+      padding-left: 37px;
+      padding-top: 16px; }
+      .footer-details .offset p {
+        font-size: 12px;
+        letter-spacing: .03em; }
+  }

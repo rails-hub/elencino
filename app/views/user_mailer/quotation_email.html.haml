@@ -1,0 +1,208 @@
+.container
+  %h3.ico-m-1{:style => "margin-top: 0px; padding-top: 8px; padding-bottom: 11px;"} Cotización - Manzana #{@lot.block.block_number} Lote #{@lot.lot_number}
+  %table.top-table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tr
+      %td
+        %p
+          Superficie:
+          %span.superficie #{@lot.area}m2
+          %br/
+          Precio de Lista:
+          %span.precio-de-lista #{number_to_currency(@lot.price)}
+      %td{:align => "right"}
+        %p
+          Importe Total:
+          %span.importe-total #{number_to_currency(@lot.total)}
+          %br/
+          Apartado de
+          %span.apratado-de #{number_to_currency(ENV["APARTADO"].to_f)}
+  %h3.ico-m-2{:style => "margin-top: 9px;"} 36 Meses Sin Intereses
+  %p
+    30% Enganche:
+    %span.enganche-30 #{number_to_currency(Phase.enganche(@lot))}
+    %br/
+    Primer Pago:
+    %span.primer-pago #{number_to_currency(Phase.primer(@lot))}
+    %br/
+    36 Mensualidades de:
+    %span.mensualidades #{number_to_currency(Phase.mensualidades(@lot))}
+  %h3.ico-m-3{:style => "margin-top: 33px;"} 50% Enganche
+  %p
+    Precio por m2:
+    %span.precio-por-m2 #{number_to_currency(Phase.precio_por_m2(@lot))}
+    (10% desc.)
+    %br/
+    Importe Total:
+    %span.importe-total-2 #{number_to_currency(Phase.importe_total(@lot))}
+    %br/
+    50% Enganche:
+    %span.enganche-50 #{number_to_currency(Phase.enganche_fifty(@lot)) }
+    %br/
+    Primer Pago:
+    %span.primer-pago-2 #{number_to_currency(Phase.primer_pago(@lot))}
+    %br/
+    Segundo Pago:
+    %span.segundo-pago #{number_to_currency(Phase.enganche_fifty(@lot)) }
+  %h3.ico-m-4{:style => "margin-top: 29px;"} Pago de Contado
+  %p
+    Precio por m2:
+    %span.precio-por-m2 #{number_to_currency(Phase.precio_por(@lot))}
+    (10% adicional)
+    %br/
+    Importe Total:
+    %span.importe-total-3 #{number_to_currency(Phase.importe(@lot)) }
+    %br/
+    Finiquito:
+    %span.finiquito #{number_to_currency(Phase.finiquito(@lot)) }
+  %table.tables{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tr
+      %td{:valign => "top", :width => "33%"}
+        .td-container
+          %h3.ico-1 36 Meses Sin Intereses
+          %p Apartado de $20,000 pesos
+          %p Pago del 30% de enganche* a los 30 días naturales posteriores al pago del apartado calculado sobre precio de lista actualizado.
+          %p El 70% restande del importe total del terreno será dividido en 36 meses sin intereses. El importe de las mensualidades resultantes se comenzarán a pagar en la fecha calendario resultante a los 30 días naturales posteriores al pago del enganche.
+      %td{:valign => "top", :width => "34%"}
+        .td-container
+          %h3.ico-2 50% Enganche
+          %p Apartado de $20,000 pesos
+          %p Pago del 50% de enganche* a los 30 días naturales posteriores al pago del apartado.
+          %p El 50% restande del importe total del terreno deberá pagarse en la fecha calendario resultante a los 365 días natrales posteriores al pago del enganche.
+          %p *Menos el importe del apartado.
+          %h4
+            10% descuento
+            %br>/
+            sobre precio de lista
+      %td{:valign => "top", :width => "33%"}
+        .td-container
+          %h3.ico-3 Pago de Contado
+          %p Apartado de $20,000 pesos
+          %p
+            Finiquito por el importe total del
+            %br/
+            terreno* a los 30 días naturales posteriores al pago del apartado.
+          %p *Menos el importe del apartado.
+          %h4
+            10% descuento
+            %br>/
+            adicional
+  %table.footer-details{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tr
+      %td{:valign => "top", :width => "48%"}
+        %h3.ico-m-5{:style => "margin-top: 29px;"} Apartado y Pagos
+        %p
+          Cheque Personal o Cheque de Caja
+          %br/
+          Depósito Bancario
+          %br/
+          Trasferencia Bancaria
+      %td{:valign => "top"}
+        .offset
+          %p
+            %strong GRUPO DESARROLLADOR CAMELOT, S. de R.L DE C.V
+            %br/
+            Banamex
+            %br/
+            Cuenta. 8925258 Sucursal 7005
+            %br/
+            Clabe Interbancaria. 0026807005892252589
+            %br/
+            %br/
+            %small *Tras realizar su apartado contará con 30 días para elegir su forma de pago.
+  %img.mw100{:alt => "", :src => "/assets/quote/footer.jpg"}/
+
+:css
+  h1, h2, h3, h4, h5, h6 {
+    color: #49596b;
+    font-family: "Helvetica Neue", Helvetica, sans-serif; }
+
+  p {
+    color: #9caebb;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 200; }
+
+  h3 {
+    padding-bottom: 2px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    font-size: 22px;
+    font-weight: 500;
+    border-bottom: 2px solid #68B66A;
+    background-repeat: no-repeat;
+    background-position: 100% -8px; }
+    h3.ico-m-1 {
+      background-position: 100% -1px;
+      /*background-image: url(/assets/quote/main-icon-1.png);*/
+      }
+    /*h3.ico-m-2 {*/
+      /*background-image: url(/assets/quote/main-icon-2.png); }*/
+    /*h3.ico-m-3 {*/
+      /*background-image: url(/assets/quote/main-icon-3.png); }*/
+    /*h3.ico-m-4 {*/
+      /*background-image: url(/assets/quote/main-icon-4.png); }*/
+    /*h3.ico-m-5 {*/
+      /*background-image: url(/assets/quote/main-icon-5.png); }*/
+
+  .mw100 {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%; }
+
+  .container {
+    margin: 0px auto;
+    padding: 0px 30px;
+    width: 920px; }
+
+  .top-table p {
+    padding-top: 0px;
+    margin-top: 8px; }
+
+  .tables .td-container {
+    display: table;
+    margin-right: 13px;
+    padding: 18px;
+    height: 371px !important;
+    box-sizing: border-box;
+    background-color: #EEEEEB; }
+    .tables .td-container h3 {
+      margin-top: 0px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      font-size: 19px;
+      border-bottom: 2px solid #68B66A;
+      background-repeat: no-repeat;
+      background-position: 100% -4px; }
+      .tables .td-container h3.ico-1 {
+        /*background-image: url(/assets/quote/table-icon-1.png); */
+        }
+      .tables .td-container h3.ico-2 {
+        /*background-image: url(/assets/quote/table-icon-2.png); */
+        }
+      .tables .td-container h3.ico-3 {
+        /*background-image: url(/assets/quote/table-icon-3.png); */
+        }
+    .tables .td-container p {
+      margin-right: 22px;
+      font-size: 13px;
+      color: #97A7AE; }
+    .tables .td-container h4 {
+      display: table-row;
+      vertical-align: bottom;
+      text-align: center;
+      height: 58px;
+      font-size: 18px; }
+  .tables tr td:nth-child(2) .td-container {
+    margin-left: 11px; }
+  .tables tr td:last-child .td-container {
+    margin-left: 12px;
+    margin-right: 0px; }
+
+  .footer-details p strong {
+    font-weight: 500;
+    font-size: 12px; }
+  .footer-details .offset {
+    padding-left: 37px;
+    padding-top: 16px; }
+    .footer-details .offset p {
+      font-size: 12px;
+      letter-spacing: .03em; }

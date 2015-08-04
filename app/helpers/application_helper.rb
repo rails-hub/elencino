@@ -41,7 +41,7 @@ module ApplicationHelper
   end
 
   def precio_por(lot)
-    ((lot.price.to_f * 0.9).to_f * 0.9 * 0.9).to_f
+    ((lot.price.to_f) * 0.9 * 0.9).to_f
   end
 
   def importe(lot)

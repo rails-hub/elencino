@@ -15,6 +15,7 @@
 %script{:src => "/assets/vendor/bootstrap.min.js"}
 / Flexslider
 %script{:src => "/assets/vendor/jquery.flexslider-min.js"}
+%script{:src => "/assets/jquery.validate.min.js"}
 :css
   /* these styles are for the demo, but are not required for the plugin */
   .zoom {
@@ -134,7 +135,8 @@
               .calculator-box
                 %h4 ¡Cotiza al Instante!
                 %p También recibirás la cotización en tu correo electrónico.
-                = form_for :user, :url => {:controller => :homes, :action => :quotation}, :method => :get, :html => {:id => 'quotation-form' , :class => 'form-signin'}, :remote => true do |f|
+                = form_for :user, :url => {:controller => :homes, :action => :quotation}, :method => :get, :html => {:id => 'quotation-form' , :class => 'form-signin', :onsubmit => 'quote_form();'}, :remote => true do |f|
+                  = hidden_field_tag "user[type]", nil
                   .form-group
                     = f.select :phase , options_for_select(@phases.map{|phase| [phase.name, phase.id]}),  {include_blank: "Etapa*"}, { :class => 'form-control', :required => true, :oninvalid => "$(this).css('border-color', 'red')" }
                   .form-group#phase-blocks
@@ -144,7 +146,7 @@
                     %select.form-control
                       %option Lote*
                   .form-group
-                    %input.form-control{:id => 'username', :class => "UUsername" ,:name => "user[username]", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
+                    %input.form-control{:id => 'username', :class => "UUsername ignore" ,:name => "user[username]", :placeholder => "Nombre Completo*", :pattern => "[A-Za-z\s]+", :type => "text", :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                   .form-group
                     %input.form-control{:id => 'email', :class => "UEmail"  ,:name => "user[email]" ,:placeholder => "Correo Electrónico*", :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', :type => "email" , :required => "true", :oninvalid => "$(this).css('border-color', 'red')"}/
                   .form-group
@@ -154,10 +156,14 @@
                     %br/
                     En caso de incremento su cotización será válida únicamente por 5 días naturales tras recibir su correo.
                   %br/
-                  .text-center
-                    %span.message#flash-message1{:style => "visibility: hidden; width: 40%; float: left"}
+                  .text-right
+                    %span.message#flash-message1{:style => "visibility: hidden;"}
                       Pronto serás contactado.
-                    %button.btn.btn-warning     Realizar Cotización    
+                .text-right
+                  %a.btn.btn-warning#both-form(href="javascript::" style="padding-right: 0")
+                    Enviar por Correo    
+                  %a.btn.btn-warning#first-form(href="javascript::" style="padding-right: 0")
+                    Realizar Cotización    
             .col-md-7.no-padding-left
               .encino-box#shared-quotation
                 = render "shared/quotation"
