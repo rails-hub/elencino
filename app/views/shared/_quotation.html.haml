@@ -62,7 +62,7 @@
 :javascript
   function can_download(id){
 
-    if($('.UUsername').val() === '' || $('.UEmail').val() === ''|| $('.UPhone').val() === '') {
+    if($('.UUsername').checkValidity() == false || $('.UEmail').checkValidity() == false || $('.UPhone').checkValidity() == false) {
       return false
     }
     else {
