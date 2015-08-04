@@ -51,9 +51,22 @@
             %br/
             Finiquito: #{number_to_currency(finiquito(@lot)) }
       .text-right
-        %a{:href => "/homes/#{@lot.id}/download_quote.pdf" , :target => "_blank"}
+        %a{:href => "javascript::" , :target => "_blank", :onclick => "can_download(#{@lot.id})"}
           %img{:src => "/assets/download-icon.png"}>/
              Guardar Cotización
 -else
   .frame
     %img(src="/assets/imgo.png" )
+
+
+:javascript
+  function can_download(id){
+
+    if($('.UUsername').val() === '' || $('.UEmail').val() === ''|| $('.UPhone').val() === '') {
+      return false
+    }
+    else {
+       var url = '/homes/'+id+'/download_quote.pdf';
+       window.open(url, '_blank');
+    }
+  }
