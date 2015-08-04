@@ -1,7 +1,7 @@
 - unless @lot.blank?
   ._hidden#form-right
     %h4.clearfix
-      Cotización - Manzana #{@lot.block_id} Lote #{@lot.lot_number}
+      Cotización - Manzana #{@lot.block.block_number} Lote #{@lot.lot_number}
       %img.pull-right{:src => "/assets/edit.png"}/
     .row
       .col-md-6
